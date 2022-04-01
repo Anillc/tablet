@@ -24,13 +24,13 @@
     nixosConfigurations.an = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       modules = [
-        { nixpkgs.overlays = [(self: super: {
-          inherit inputs;
-        })]; }
+        { nixpkgs.overlays = [
+          (self: super: { inherit inputs; })
+          nur.overlay nixos-cn.overlay
+        ]; }
         impermanence.nixosModules.impermanence
         home-manager.nixosModules.home-manager
-        { nixpkgs.overlays = [ nur.overlay nixos-cn.overlay ];}
-        ./modules/configuration.nix
+        ./modules
       ];
     };
   };

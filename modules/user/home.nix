@@ -19,7 +19,7 @@ with lib;
   };
   programs.xmobar = {
     enable = true;
-    extraConfig = builtins.readFile ../files/xmobar.conf;
+    extraConfig = builtins.readFile ./xmobar.conf;
   };
   programs.kitty = {
     enable = true;
