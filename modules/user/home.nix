@@ -36,8 +36,21 @@ with lib;
     enable = true;
     nix-direnv.enable = true;
   };
-  programs.fish = {
-    enable = true;
-  };
+  programs.fish.enable = true;
   programs.starship.enable = true;
+  services.trayer = {
+    enable = true;
+    settings = {
+      monitor = 1;
+      width = 7;
+      height = 32;
+      edge = "top";
+      align = "right";
+      transparent = true;
+      alpha = 0;
+      tint = "0x555555";
+      margin = 10;
+      iconspacing = 10;
+    };
+  };
 }
