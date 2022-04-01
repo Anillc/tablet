@@ -11,4 +11,5 @@ with lib;
     ./packages
     ./user
   ];
+  sops.age.keyFile = "/var/lib/sops.key";
 }

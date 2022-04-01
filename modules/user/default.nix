@@ -20,10 +20,12 @@ with lib;
     users.anillc = {
       directories = [
         "temp"
+        "Projects"
         ".config/fcitx5"
         ".config/chromium"
         ".config/Code"
         ".config/keepassxc"
+        ".config/sops"
         ".minecraft"
         ".mozilla"
         ".vscode"
