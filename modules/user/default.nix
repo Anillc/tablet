@@ -26,6 +26,7 @@ with lib;
         ".config/Code"
         ".config/keepassxc"
         ".config/sops"
+        ".config/discord"
         ".minecraft"
         ".mozilla"
         ".vscode"

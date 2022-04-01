@@ -20,7 +20,7 @@ with lib;
     flameshot git firefox
     keepassxc
     ghc openjdk
-    # discord
+    discord
   ];
 
   nixpkgs.overlays = [(self: super: {
