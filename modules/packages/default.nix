@@ -21,6 +21,7 @@ with lib;
     keepassxc
     ghc openjdk
     discord
+    libreoffice
   ];
 
   nixpkgs.overlays = [(self: super: {
