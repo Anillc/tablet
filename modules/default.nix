@@ -12,4 +12,5 @@ with lib;
     ./user
   ];
   sops.age.keyFile = "/var/lib/sops.key";
+  time.timeZone = "Asia/Shanghai";
 }
