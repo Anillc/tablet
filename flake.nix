@@ -17,11 +17,15 @@
     url = "github:nixos-cn/flakes";
     inputs.nixpkgs.follows = "nixpkgs";
   };
+  inputs.nickcao = {
+    url = "github:NickCao/flakes";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
   inputs.flake-utils = {
     url = "github:numtide/flake-utils";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = inputs@{ self, nixpkgs, impermanence, sops-nix, home-manager, nur, nixos-cn, flake-utils }: flake-utils.lib.eachDefaultSystem (system: let
+  outputs = inputs@{ self, nixpkgs, impermanence, sops-nix, home-manager, nur, nickcao, nixos-cn, flake-utils }: flake-utils.lib.eachDefaultSystem (system: let
     pkgs = import nixpkgs { inherit system; };
   in {
     devShell = pkgs.mkShell {

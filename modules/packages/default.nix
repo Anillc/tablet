@@ -22,6 +22,8 @@ with lib;
     ghc openjdk
     discord
     libreoffice
+    nodejs yarn
+    pkgs.inputs.nickcao.packages.${pkgs.system}.wemeet
   ];
 
   nixpkgs.overlays = [(self: super: {
