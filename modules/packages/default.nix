@@ -24,6 +24,7 @@ with lib;
     libreoffice
     nodejs yarn
     pkgs.inputs.nickcao.packages.${pkgs.system}.wemeet
+    pkgs.inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
   ];
 
   nixpkgs.overlays = [(self: super: {

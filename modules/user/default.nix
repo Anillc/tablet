@@ -27,6 +27,7 @@ with lib;
         ".config/keepassxc"
         ".config/sops"
         ".config/discord"
+        ".config/netease-cloud-music"
         ".minecraft"
         ".mozilla"
         ".vscode"
