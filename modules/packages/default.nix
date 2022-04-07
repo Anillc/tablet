@@ -23,6 +23,7 @@ with lib;
     discord
     libreoffice
     nodejs yarn
+    element-desktop
     pkgs.inputs.nickcao.packages.${pkgs.system}.wemeet
     pkgs.inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
   ];

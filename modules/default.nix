@@ -13,4 +13,9 @@ with lib;
   ];
   sops.age.keyFile = "/var/lib/sops.key";
   time.timeZone = "Asia/Shanghai";
+  networking.firewall.enable = false;
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+  };
 }

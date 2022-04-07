@@ -28,6 +28,7 @@ with lib;
         ".config/sops"
         ".config/discord"
         ".config/netease-cloud-music"
+        ".config/Element"
         ".minecraft"
         ".mozilla"
         ".vscode"
