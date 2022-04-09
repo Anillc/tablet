@@ -8,6 +8,7 @@ with lib;
   services.xserver.config = readFile ./xorg.conf;
   services.xserver = {
     enable = true;
+    wacom.enable = true;
     videoDrivers = [ "nvidia" ];
     libinput.enable = true;
     displayManager = {
