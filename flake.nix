@@ -1,5 +1,5 @@
 {
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.impermanence.url = "github:nix-community/impermanence";
   inputs.sops-nix = {
     url = "github:Mic92/sops-nix";
