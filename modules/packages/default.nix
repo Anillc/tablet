@@ -15,7 +15,7 @@ with lib;
   };
   programs.command-not-found.enable = false;
   environment.systemPackages = with pkgs; [
-    vim wget dmenu xmobar kitty
+    wget dmenu xmobar kitty
     tdesktop vscode chromium
     flameshot git firefox
     keepassxc

@@ -14,6 +14,7 @@ with lib;
   sops.age.keyFile = "/var/lib/sops.key";
   time.timeZone = "Asia/Shanghai";
   networking.firewall.enable = false;
+  programs.vim.defaultEditor = true;
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;
