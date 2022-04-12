@@ -27,14 +27,4 @@ with lib;
     pkgs.inputs.nickcao.packages.${pkgs.system}.wemeet
     pkgs.inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
   ];
-
-  # nixpkgs.overlays = [(self: super: {
-  #   haskellPackages = super.haskellPackages.override {
-  #     overrides = hself: hsuper: {
-  #       xmonad = hself.xmonad_0_17_0;
-  #       xmonad-contrib = hself.xmonad-contrib_0_17_0;
-  #       xmonad-extras = hself.xmonad-extras_0_17_0;
-  #     };
-  #   };
-  # })];
 }

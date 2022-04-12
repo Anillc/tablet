@@ -21,7 +21,7 @@ with lib;
     enable = true;
     extraConfig = builtins.readFile ./xmobar.conf;
   };
-  programs.kitty = { # TODO: alacritty
+  programs.kitty = {
     enable = true;
     font = {
       name = "jetbrains mono";
@@ -36,7 +36,23 @@ with lib;
     enable = true;
     nix-direnv.enable = true;
   };
-  programs.fish.enable = true;
+  programs.fish ={
+    enable = true;
+    shellInit = ''
+      export TERM=xterm
+    '';
+    plugins = [
+      {
+        name = "git";
+        src = pkgs.fetchFromGitHub {
+          owner = "jhillyerd";
+          repo = "plugin-git";
+          rev = "2a3e35c05bdc5b9005f917d5281eb866b2e13104";
+          sha256 = "sha256-tWiGIB6yHfZ+QSNJrahHxRQCIOaOlSNFby4bGIOIwic=";
+        };
+      }
+    ];
+  };
   programs.starship.enable = true;
   programs.gpg.enable = true;
   services.gpg-agent.enable = true;
