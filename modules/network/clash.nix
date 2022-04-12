@@ -4,7 +4,6 @@ with builtins;
 with lib;
 
 let
-  cfg = config.clash;
   sync-clash = pkgs.writeScript "sync-clash" ''
     export PATH=$PATH:${with pkgs; lib.strings.makeBinPath [
         wget gnused

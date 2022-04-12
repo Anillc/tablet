@@ -21,7 +21,7 @@ with lib;
     enable = true;
     extraConfig = builtins.readFile ./xmobar.conf;
   };
-  programs.kitty = {
+  programs.kitty = { # TODO: alacritty
     enable = true;
     font = {
       name = "jetbrains mono";
@@ -38,6 +38,8 @@ with lib;
   };
   programs.fish.enable = true;
   programs.starship.enable = true;
+  programs.gpg.enable = true;
+  services.gpg-agent.enable = true;
   services.trayer = {
     enable = true;
     settings = {

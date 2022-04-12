@@ -15,6 +15,7 @@ with lib;
   time.timeZone = "Asia/Shanghai";
   networking.firewall.enable = false;
   programs.vim.defaultEditor = true;
+  virtualisation.virtualbox.host.enable = true;
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;

@@ -28,10 +28,12 @@ with lib;
         ".config/sops"
         ".config/discord"
         ".config/Element"
+        ".config/VirtualBox"
         ".cache/netease-cloud-music"
         ".minecraft"
         ".mozilla"
         ".vscode"
+        ".gnupg"
         ".local"
         ".ssh"
       ];
