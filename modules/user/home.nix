@@ -28,8 +28,8 @@ with lib;
       size = 12;
     };
     settings = {
-      background = "#000000";
-      background_opacity = "0.4";
+      background = "#111111";
+      background_opacity = "0.6";
     };
   };
   programs.direnv = {
