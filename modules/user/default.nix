@@ -29,6 +29,7 @@ with lib;
         ".config/discord"
         ".config/Element"
         ".config/VirtualBox"
+        ".config/Jetbrains"
         ".cache/netease-cloud-music"
         ".minecraft"
         ".mozilla"
