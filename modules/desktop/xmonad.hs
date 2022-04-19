@@ -15,11 +15,11 @@ import qualified XMonad.StackSet as S
 
 cfg = ewmh $ ewmhFullscreen $ bar $ flip additionalKeysP
       ([ ("<XF86AudioMute>"      , spawn "amixer -q sset Master toggle")
-      , ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 2%-")
-      , ("<XF86AudioRaiseVolume>", spawn "amixer -q sset Master 2%+")
-      , ("M-s"                   , spawn "flameshot gui")
-      , ("M-n"                   , nextScreen)
-      , ("M-2"                   , spawn "true") -- noop
+      ,  ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 2%-")
+      ,  ("<XF86AudioRaiseVolume>", spawn "amixer -q sset Master 2%+")
+      ,  ("M-s"                   , spawn "flameshot gui")
+      ,  ("M-n"                   , nextScreen)
+      ,  ("M-2"                   , spawn "true") -- noop
       ] ++
       [(if key /= 2 -- workspace keybindings
             then "M-" ++ show key

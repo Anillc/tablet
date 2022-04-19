@@ -32,5 +32,18 @@ with lib;
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [ fcitx5-chinese-addons ];
   };
+  services.picom = {
+    enable = true;
+    experimentalBackends = true;
+    backend = "glx";
+    settings = {
+      method = "dual_kawase";
+      corner-radius = 14;
+      rounded-corners-exclude = [
+        "window_type = 'dock'"
+        "window_type = 'desktop'"
+      ];
+    };
+  };
   fonts.fonts = with pkgs; [ jetbrains-mono ];
 }

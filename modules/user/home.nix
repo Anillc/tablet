@@ -7,15 +7,15 @@ with lib;
   xsession = {
     enable = true;
     numlock.enable = true;
-    initExtra = "${pkgs.picom}/bin/picom --experimental-backends --config ${pkgs.writeText "picom.conf" ''
-      blur-method = "dual_kawase";
-      backend = "glx";
-      corner-radius = 7;
-      rounded-corners-exclude = [
-        "window_type = 'dock'",
-        "window_type = 'desktop'",
-      ];
-    ''} &";
+    # initExtra = "${pkgs.picom}/bin/picom --experimental-backends --config ${pkgs.writeText "picom.conf" ''
+    #   blur-method = "dual_kawase";
+    #   backend = "glx";
+    #   corner-radius = 7;
+    #   rounded-corners-exclude = [
+    #     "window_type = 'dock'",
+    #     "window_type = 'desktop'",
+    #   ];
+    # ''} &";
   };
   programs.xmobar = {
     enable = true;
