@@ -6,6 +6,7 @@
       "/var/lib"
       "/var/log"
       "/var/cache"
+      "/etc/NetworkManager"
     ];
     files = [
       "/etc/machine-id"
