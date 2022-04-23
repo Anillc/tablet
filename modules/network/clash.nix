@@ -21,6 +21,7 @@ in {
     wantedBy = [ "multi-user.target" ];
     after = [ "network-online.target" ];
     preStart = "${sync-clash}";
+    serviceConfig.Restart = "on-failure";
     script = "${pkgs.clash}/bin/clash -d /var/lib/clash";
   };
 }
