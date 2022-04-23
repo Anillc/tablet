@@ -37,7 +37,8 @@ with lib;
     experimentalBackends = true;
     backend = "glx";
     settings = {
-      method = "dual_kawase";
+      blur-method = "dual_kawase";
+      blur-size = 12;
       corner-radius = 14;
       rounded-corners-exclude = [
         "window_type = 'dock'"

@@ -29,7 +29,7 @@ with lib;
     };
     settings = {
       background = "#111111";
-      background_opacity = "0.6";
+      background_opacity = "0.8";
     };
   };
   programs.direnv = {
