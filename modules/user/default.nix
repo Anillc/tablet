@@ -21,6 +21,8 @@ with lib;
       directories = [
         "temp"
         "Projects"
+        "Downloads"
+        "Documents"
         ".config/fcitx5"
         ".config/chromium"
         ".config/Code"
@@ -30,7 +32,9 @@ with lib;
         ".config/Element"
         ".config/VirtualBox"
         ".config/Jetbrains"
+        ".config/Logseq"
         ".cache/netease-cloud-music"
+        ".thunderbird"
         ".minecraft"
         ".mozilla"
         ".vscode"

@@ -38,8 +38,11 @@ cfg = ewmh $ ewmhFullscreen $ bar $ flip additionalKeysP
 bar = flip withEasySB keyBinding $ statusBarProp "xmobar" $ pure xmobarPP
   where keyBinding XConfig { modMask = m } = (m, xK_b)
 
-ws = ["1:main", "2", "3:chat", "4:pass", "5", "6", "7", "8", "9"]
+ws = ["1:main", "2", "3:chat", "4:pass", "5:media", "6:mail", "7", "8", "9"]
 
-start = spawnOn "4:pass" "keepassxc"
+start = do
+  spawnOn "4:pass" "keepassxc"
+  spawnOn "2" "logseq"
+  spawnOn "6:mail" "thunderbird"
 
 main = spawnPipe "@feh@/bin/feh --bg-fill @bg@" >> spawnPipe "xmobar" >> xmonad cfg
