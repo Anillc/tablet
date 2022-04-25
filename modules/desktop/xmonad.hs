@@ -14,10 +14,12 @@ import XMonad.Actions.CycleWS
 import qualified XMonad.StackSet as S
 
 cfg = ewmh $ ewmhFullscreen $ bar $ flip additionalKeysP
-      ([ ("<XF86AudioMute>"      , spawn "amixer -q sset Master toggle")
+      ([ ("<XF86AudioMute>"       , spawn "amixer -q sset Master toggle")
       ,  ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 2%-")
       ,  ("<XF86AudioRaiseVolume>", spawn "amixer -q sset Master 2%+")
       ,  ("M-s"                   , spawn "flameshot gui")
+      ,  ("<XF86Calculater>"      , spawn "systemctl hibernate")
+      ,  ("<XF86MyComputer>"      , spawn "dm-tool lock")
       ,  ("M-n"                   , nextScreen)
       ,  ("M-2"                   , spawn "true") -- noop
       ] ++
