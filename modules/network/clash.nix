@@ -12,7 +12,10 @@ let
     sed -i "0,/type: select/{s/type: select/type: url-test\n  url: http:\/\/google.com\n  interval: 300/}" /var/lib/clash/config.yaml
   '';
 in {
-  networking.proxy.default = "http://127.0.0.1:7890";
+  networking.proxy = {
+    noProxy = ".a";
+    default = "http://127.0.0.1:7890";
+  };
   sops.secrets.sync-clash = {
       sopsFile  = ./secrets.yaml;
       mode = "0700";
