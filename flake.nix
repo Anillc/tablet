@@ -21,11 +21,15 @@
     url = "github:NickCao/flakes";
     inputs.nixpkgs.follows = "nixpkgs";
   };
+  inputs.anillc = {
+    url = "github:Anillc/flakes";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
   inputs.flake-utils = {
     url = "github:numtide/flake-utils";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = inputs@{ self, nixpkgs, impermanence, sops-nix, home-manager, nur, nickcao, nixos-cn, flake-utils }: flake-utils.lib.eachDefaultSystem (system: let
+  outputs = inputs@{ self, nixpkgs, impermanence, sops-nix, home-manager, nur, nickcao, nixos-cn, anillc, flake-utils }: flake-utils.lib.eachDefaultSystem (system: let
     pkgs = import nixpkgs { inherit system; };
   in {
     devShell = pkgs.mkShell {
@@ -37,7 +41,7 @@
       modules = [
         { nixpkgs.overlays = [
           (self: super: { inherit inputs; })
-          nur.overlay nixos-cn.overlay
+          nur.overlay nixos-cn.overlay anillc.overlay.x86_64-linux
         ]; }
         sops-nix.nixosModules.sops
         impermanence.nixosModules.impermanence

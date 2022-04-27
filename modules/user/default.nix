@@ -32,6 +32,8 @@ with lib;
         ".config/Element"
         ".config/VirtualBox"
         ".config/Jetbrains"
+        ".config/Logseq"
+        ".cinfig/icalingua"
         ".cache/netease-cloud-music"
         ".thunderbird"
         ".minecraft"

@@ -11,6 +11,7 @@ with lib;
     wacom.enable = true;
     videoDrivers = [ "nvidia" ];
     libinput.enable = true;
+    desktopManager.runXdgAutostartIfNone = true; # fcitx5
     displayManager = {
       lightdm.enable = true;
       autoLogin = {

@@ -18,7 +18,7 @@ with lib;
     wget dmenu xmobar kitty tdesktop vscode chromium
     flameshot git firefox keepassxc ghc openjdk
     discord libreoffice nodejs yarn
-    logseq thunderbird osu-lazer
+    logseq thunderbird osu-lazer icalingua
     pkgs.inputs.nickcao.packages.${pkgs.system}.wemeet
     pkgs.inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
     jetbrains.idea-community jetbrains.goland go_1_18 clang gcc
