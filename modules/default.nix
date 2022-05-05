@@ -16,10 +16,11 @@ with lib;
   networking.firewall.enable = false;
   programs.vim.defaultEditor = true;
   virtualisation.virtualbox.host.enable = true;
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-  };
+  # services.mysql = {
+  #   enable = true;
+  #   package = pkgs.mariadb;
+  # };
+  # services.mongodb.enable = true;
   nix.extraOptions = ''
     extra-platforms = aarch64-linux i686-linux
   '';
@@ -47,4 +48,5 @@ with lib;
       -----END CERTIFICATE-----
     ''
   ];
+  programs.nix-ld.enable = true;
 }
