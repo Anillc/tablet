@@ -5,6 +5,7 @@ with lib;
 
 {
   security.sudo.wheelNeedsPassword = false;
+  environment.shells = [ pkgs.fish ];
   users.users.anillc = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
