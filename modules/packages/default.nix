@@ -9,6 +9,7 @@ with lib;
   nix = {
     package = pkgs.nixUnstable;
     nixPath = [ "nixpkgs=${pkgs.inputs.nixpkgs}" ];
+    registry.p.flake = pkgs.inputs.self;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';

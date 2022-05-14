@@ -35,6 +35,7 @@
     devShell = pkgs.mkShell {
       nativeBuildInputs = [ pkgs.sops ];
     };
+    packages = pkgs;
   }) // {
     nixosConfigurations.an = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
