@@ -36,6 +36,7 @@ with lib;
         ".config/Logseq"
         ".cinfig/icalingua"
         ".cache/netease-cloud-music"
+        ".cache/nix-index"
         ".thunderbird"
         ".minecraft"
         ".mozilla"

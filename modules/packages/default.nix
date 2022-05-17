@@ -23,6 +23,7 @@ with lib;
     pkgs.inputs.nickcao.packages.${pkgs.system}.wemeet
     pkgs.inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
     jetbrains.idea-community jetbrains.goland go_1_18 clang gcc
+    nix-index
   ];
   nixpkgs.overlays = [(self: super: {
     picom = super.picom.overrideAttrs (x: {
