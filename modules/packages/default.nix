@@ -5,7 +5,7 @@ with lib;
 
 {
   nixpkgs.config.allowUnfree = true;
-  nix.binaryCaches = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
+  nix.binaryCaches = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
   nix = {
     package = pkgs.nixUnstable;
     nixPath = [ "nixpkgs=${pkgs.inputs.nixpkgs}" ];
@@ -22,8 +22,8 @@ with lib;
     logseq thunderbird osu-lazer icalingua
     pkgs.inputs.nickcao.packages.${pkgs.system}.wemeet
     pkgs.inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
-    jetbrains.idea-community jetbrains.goland go_1_18 clang gcc
-    nix-index
+    jetbrains.idea-community jetbrains.goland jetbrains.clion go_1_18 clang gcc
+    nix-index clang gnumake mtr
   ];
   nixpkgs.overlays = [(self: super: {
     picom = super.picom.overrideAttrs (x: {
