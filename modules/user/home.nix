@@ -40,6 +40,7 @@ with lib;
     enable = true;
     shellInit = ''
       export TERM=xterm
+      alias pb="curl --data-binary @- https://pb.nichi.co/"
     '';
     plugins = [
       {
