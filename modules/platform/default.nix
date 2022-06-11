@@ -18,6 +18,7 @@
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.pulseaudio.enable = true;
   hardware.enableRedistributableFirmware = true;
+  system.stateVersion = "22.05";
   boot = {
     kernelModules = [ "kvm-intel" ];
     initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];

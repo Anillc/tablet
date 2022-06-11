@@ -22,9 +22,10 @@ with lib;
     logseq thunderbird osu-lazer icalingua
     pkgs.inputs.nickcao.packages.${pkgs.system}.wemeet
     pkgs.inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
-    jetbrains.idea-community jetbrains.goland jetbrains.clion go_1_18 clang gcc
+    jetbrains.idea-community jetbrains.goland jetbrains.clion go_1_18 gcc
     nix-index clang cmake gnumake mtr
   ];
+  environment.variables.QT_IM_MODULE = mkForce "ibus";
   nixpkgs.overlays = [(self: super: {
     picom = super.picom.overrideAttrs (x: {
       src = pkgs.fetchFromGitHub {
