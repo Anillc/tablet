@@ -24,6 +24,8 @@ with lib;
         "Projects"
         "Downloads"
         "Documents"
+        "Android"
+        ".android"
         ".config/fcitx5"
         ".config/chromium"
         ".config/Code"

@@ -23,7 +23,7 @@ with lib;
     pkgs.inputs.nickcao.packages.${pkgs.system}.wemeet
     pkgs.inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
     jetbrains.idea-community jetbrains.goland jetbrains.clion go_1_18 gcc
-    nix-index clang cmake gnumake mtr
+    nix-index clang cmake gnumake mtr android-studio
   ];
   environment.variables.QT_IM_MODULE = mkForce "ibus";
   nixpkgs.overlays = [(self: super: {
