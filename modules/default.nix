@@ -57,4 +57,5 @@ with lib;
     enable = true;
     dockerCompat = true;
   };
+  powerManagement.powertop.enable = true;
 }
