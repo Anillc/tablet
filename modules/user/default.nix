@@ -36,7 +36,7 @@ with lib;
         ".config/VirtualBox"
         ".config/Jetbrains"
         ".config/Logseq"
-        ".cinfig/icalingua"
+        ".config/icalingua"
         ".cache/netease-cloud-music"
         ".cache/nix-index"
         ".thunderbird"

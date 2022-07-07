@@ -25,6 +25,10 @@ with lib;
     extra-platforms = aarch64-linux i686-linux
   '';
   nix.sandboxPaths = [ "/run/binfmt" "${pkgs.qemu}" ];
+  boot.binfmt.emulatedSystems = [
+    "aarch64-linux"
+    "x86_64-windows"
+  ];
   boot.binfmt.registrations = {
     aarch64 = {
       interpreter = "${pkgs.qemu}/bin/qemu-aarch64";
