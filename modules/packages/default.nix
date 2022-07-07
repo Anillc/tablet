@@ -5,7 +5,7 @@ with lib;
 
 {
   nixpkgs.config.allowUnfree = true;
-  nix.binaryCaches = [ "https://mirror.sjtu.edu.cn/nix-channels/store" "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+  nix.binaryCaches = [  ];
   nix = {
     package = pkgs.nixUnstable;
     nixPath = [ "nixpkgs=${pkgs.inputs.nixpkgs}" ];
@@ -13,6 +13,16 @@ with lib;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+    settings = {
+      substituters = [
+        "https://mirror.sjtu.edu.cn/nix-channels/store"
+        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+        "https://anillc.cachix.org"
+      ];
+      trusted-public-keys = [
+        "anillc.cachix.org-1:VmWDYKHoDiT0CKs+6daDcTz3Ur+gkw4k0kcHIeF6dF8="
+      ];
+    };
   };
   programs.command-not-found.enable = false;
   environment.systemPackages = with pkgs; [
