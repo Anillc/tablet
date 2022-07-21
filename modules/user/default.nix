@@ -39,6 +39,7 @@ with lib;
         ".config/icalingua"
         ".cache/netease-cloud-music"
         ".cache/nix-index"
+        ".cache/nix"
         ".thunderbird"
         ".minecraft"
         ".mozilla"

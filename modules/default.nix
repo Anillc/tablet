@@ -20,22 +20,7 @@ with lib;
     enable = true;
     package = pkgs.mariadb;
   };
-  # services.mongodb.enable = true;
-  nix.extraOptions = ''
-    extra-platforms = aarch64-linux i686-linux
-  '';
-  nix.sandboxPaths = [ "/run/binfmt" "${pkgs.qemu}" ];
-  boot.binfmt.emulatedSystems = [
-    "aarch64-linux"
-    "x86_64-windows"
-  ];
-  boot.binfmt.registrations = {
-    aarch64 = {
-      interpreter = "${pkgs.qemu}/bin/qemu-aarch64";
-      magicOrExtension = ''\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\xb7\x00'';
-      mask = ''\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\x00\xff\xfe\xff\xff\xff'';
-    };
-  };
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   security.pki.certificates = [
     ''
       -----BEGIN CERTIFICATE-----

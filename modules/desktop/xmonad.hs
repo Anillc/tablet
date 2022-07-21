@@ -43,8 +43,10 @@ bar = flip withEasySB keyBinding $ statusBarProp "xmobar" $ pure xmobarPP
 ws = ["1:main", "2", "3:chat", "4:pass", "5:media", "6:mail", "7", "8", "9"]
 
 start = do
-  spawnOn "4:pass" "bitwarden"
   spawnOn "2" "logseq"
+  spawnOn "3:chat" "telegram-desktop"
+  spawnOn "3:chat" "kitty"
+  spawnOn "4:pass" "bitwarden"
   spawnOn "6:mail" "thunderbird"
 
 main = spawnPipe "@feh@/bin/feh --bg-fill @bg@" >> spawnPipe "xmobar" >> xmonad cfg

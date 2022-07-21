@@ -5,7 +5,6 @@ with lib;
 
 {
   nixpkgs.config.allowUnfree = true;
-  nix.binaryCaches = [  ];
   nix = {
     package = pkgs.nixUnstable;
     nixPath = [ "nixpkgs=${pkgs.inputs.nixpkgs}" ];

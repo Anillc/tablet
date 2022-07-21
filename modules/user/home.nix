@@ -72,4 +72,5 @@ with lib;
       iconspacing = 10;
     };
   };
+  home.stateVersion = "22.05";
 }

@@ -41,8 +41,10 @@
       system = "x86_64-linux";
       modules = [
         { nixpkgs.overlays = [
-          (self: super: { inherit inputs; })
-          nur.overlay nixos-cn.overlay anillc.overlay.x86_64-linux
+          (self: super: {
+            inherit inputs;
+          } // anillc.packages.${system})
+          nur.overlay nixos-cn.overlay
         ]; }
         sops-nix.nixosModules.sops
         impermanence.nixosModules.impermanence
