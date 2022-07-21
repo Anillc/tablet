@@ -43,7 +43,7 @@ bar = flip withEasySB keyBinding $ statusBarProp "xmobar" $ pure xmobarPP
 ws = ["1:main", "2", "3:chat", "4:pass", "5:media", "6:mail", "7", "8", "9"]
 
 start = do
-  spawnOn "4:pass" "keepassxc"
+  spawnOn "4:pass" "bitwarden"
   spawnOn "2" "logseq"
   spawnOn "6:mail" "thunderbird"
 

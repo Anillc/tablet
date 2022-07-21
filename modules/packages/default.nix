@@ -27,7 +27,7 @@ with lib;
   programs.command-not-found.enable = false;
   environment.systemPackages = with pkgs; [
     wget dmenu xmobar kitty tdesktop vscode chromium
-    flameshot git firefox keepassxc ghc openjdk
+    flameshot git firefox bitwarden ghc openjdk
     discord libreoffice nodejs yarn
     logseq thunderbird osu-lazer icalingua
     pkgs.inputs.nickcao.packages.${pkgs.system}.wemeet

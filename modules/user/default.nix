@@ -29,7 +29,7 @@ with lib;
         ".config/fcitx5"
         ".config/chromium"
         ".config/Code"
-        ".config/keepassxc"
+        ".config/Bitwarden"
         ".config/sops"
         ".config/discord"
         ".config/Element"
