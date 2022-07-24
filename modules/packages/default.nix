@@ -34,7 +34,6 @@ with lib;
     jetbrains.idea-community jetbrains.goland jetbrains.clion go_1_18 gcc
     nix-index clang cmake gnumake mtr android-studio
   ];
-  environment.variables.QT_IM_MODULE = mkForce "ibus";
   nixpkgs.overlays = [(self: super: {
     picom = super.picom.overrideAttrs (x: {
       src = pkgs.fetchFromGitHub {
