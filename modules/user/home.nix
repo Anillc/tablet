@@ -8,7 +8,11 @@ with lib;
     enable = true;
     numlock.enable = true;
   };
-  services.taffybar.enable = true;
+  services.polybar = {
+    enable = true;
+    script = "polybar example &";
+    config = ./polybar.ini;
+  };
   programs.kitty = {
     enable = true;
     font = {

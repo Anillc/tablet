@@ -8,13 +8,15 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
+import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.TaffybarPagerHints
 import XMonad.Layout.Spacing
 import XMonad.Actions.SpawnOn
 import XMonad.Actions.CycleWS
-import XMonad.Hooks.TaffybarPagerHints
+import Control.Monad.IO.Class
 import qualified XMonad.StackSet as S
 
-cfg = ewmh $ ewmhFullscreen $ bar $ pagerHints $ flip additionalKeysP
+cfg = ewmh $ ewmhFullscreen $ docks $ bar $ pagerHints $ flip additionalKeysP
       ([ ("<XF86AudioMute>"       , spawn "amixer -q sset Master toggle")
       ,  ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 2%-")
       ,  ("<XF86AudioRaiseVolume>", spawn "amixer -q sset Master 2%+")
@@ -22,7 +24,7 @@ cfg = ewmh $ ewmhFullscreen $ bar $ pagerHints $ flip additionalKeysP
       ,  ("<XF86Calculater>"      , spawn "systemctl hibernate")
       ,  ("<XF86MyComputer>"      , spawn "dm-tool lock")
       ,  ("M-n"                   , nextScreen)
-      ,  ("M-2"                   , spawn "true") -- noop
+      ,  ("M-2"                   , liftIO $ return ()) -- noop
       ] ++
       [(if key /= 2 -- workspace keybindings
             then "M-" ++ show key
@@ -31,13 +33,13 @@ cfg = ewmh $ ewmhFullscreen $ bar $ pagerHints $ flip additionalKeysP
       { terminal        = "kitty"
       , workspaces      = ws
       , focusedBorderColor = "#AAAAAA"
-      , normalBorderColor = "#FFFFFF"
+      , normalBorderColor  = "#FFFFFF"
       , layoutHook      = spacingWithEdge 3 $ layoutHook def
       , manageHook      = manageHook  def <+> manageSpawn
       , startupHook     = startupHook def <+> start
       }
 
-bar = flip withEasySB keyBinding $ statusBarProp "taffybar" $ pure def
+bar = flip withEasySB keyBinding $ statusBarProp "polybar" $ pure def
   where keyBinding XConfig { modMask = m } = (m, xK_b)
 
 ws = ["1:main", "2", "3:chat", "4:pass", "5:media", "6:mail", "7", "8", "9"]
