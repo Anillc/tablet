@@ -11,9 +11,10 @@ import XMonad.Hooks.StatusBar.PP
 import XMonad.Layout.Spacing
 import XMonad.Actions.SpawnOn
 import XMonad.Actions.CycleWS
+import XMonad.Hooks.TaffybarPagerHints
 import qualified XMonad.StackSet as S
 
-cfg = ewmh $ ewmhFullscreen $ bar $ flip additionalKeysP
+cfg = ewmh $ ewmhFullscreen $ bar $ pagerHints $ flip additionalKeysP
       ([ ("<XF86AudioMute>"       , spawn "amixer -q sset Master toggle")
       ,  ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 2%-")
       ,  ("<XF86AudioRaiseVolume>", spawn "amixer -q sset Master 2%+")
@@ -31,10 +32,9 @@ cfg = ewmh $ ewmhFullscreen $ bar $ flip additionalKeysP
       , workspaces      = ws
       , focusedBorderColor = "#AAAAAA"
       , normalBorderColor = "#FFFFFF"
-      , layoutHook      = spacingWithEdge 3 $ layoutHook defaultConfig
-      , handleEventHook = fullscreenEventHook <+> handleEventHook defaultConfig
-      , manageHook      = manageSpawn         <+> manageHook defaultConfig
-      , startupHook     = start               <+> startupHook defaultConfig
+      , layoutHook      = spacingWithEdge 3 $ layoutHook def
+      , manageHook      = manageHook  def <+> manageSpawn
+      , startupHook     = startupHook def <+> start
       }
 
 bar = flip withEasySB keyBinding $ statusBarProp "taffybar" $ pure def
@@ -43,7 +43,6 @@ bar = flip withEasySB keyBinding $ statusBarProp "taffybar" $ pure def
 ws = ["1:main", "2", "3:chat", "4:pass", "5:media", "6:mail", "7", "8", "9"]
 
 start = do
-  spawnOn "2" "logseq"
   spawnOn "3:chat" "telegram-desktop"
   spawnOn "3:chat" "kitty"
   spawnOn "4:pass" "bitwarden"

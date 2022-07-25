@@ -48,4 +48,8 @@ with lib;
     };
   };
   fonts.fonts = with pkgs; [ jetbrains-mono ];
+
+  # TODO: https://github.com/taffybar/taffybar/issues/403
+  gtk.iconCache.enable = true;
+  services.xserver.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
 }
