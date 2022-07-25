@@ -47,9 +47,12 @@ with lib;
       ];
     };
   };
-  fonts.fonts = with pkgs; [ jetbrains-mono ];
+  fonts.fonts = with pkgs; [
+    jetbrains-mono
+    source-han-sans
+  ];
 
-  # TODO: https://github.com/taffybar/taffybar/issues/403
-  gtk.iconCache.enable = true;
+  # from https://github.com/taffybar/taffybar/issues/403
+  # resolve tray not showing in polybar
   services.xserver.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
 }
