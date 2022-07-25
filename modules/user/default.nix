@@ -34,7 +34,7 @@ with lib;
         ".config/discord"
         ".config/Element"
         ".config/VirtualBox"
-        ".config/Jetbrains"
+        ".config/JetBrains"
         ".config/Logseq"
         ".config/icalingua"
         ".cache/netease-cloud-music"
