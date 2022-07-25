@@ -7,20 +7,8 @@ with lib;
   xsession = {
     enable = true;
     numlock.enable = true;
-    # initExtra = "${pkgs.picom}/bin/picom --experimental-backends --config ${pkgs.writeText "picom.conf" ''
-    #   blur-method = "dual_kawase";
-    #   backend = "glx";
-    #   corner-radius = 7;
-    #   rounded-corners-exclude = [
-    #     "window_type = 'dock'",
-    #     "window_type = 'desktop'",
-    #   ];
-    # ''} &";
   };
-  programs.xmobar = {
-    enable = true;
-    extraConfig = builtins.readFile ./xmobar.conf;
-  };
+  services.taffybar.enable = true;
   programs.kitty = {
     enable = true;
     font = {
@@ -57,20 +45,5 @@ with lib;
   programs.starship.enable = true;
   programs.gpg.enable = true;
   services.gpg-agent.enable = true;
-  services.trayer = {
-    enable = true;
-    settings = {
-      monitor = 1;
-      width = 7;
-      height = 32;
-      edge = "top";
-      align = "right";
-      transparent = true;
-      alpha = 0;
-      tint = "0x555555";
-      margin = 10;
-      iconspacing = 10;
-    };
-  };
   home.stateVersion = "22.05";
 }
