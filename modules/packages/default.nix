@@ -25,7 +25,7 @@ with lib;
   };
   programs.command-not-found.enable = false;
   environment.systemPackages = with pkgs; [
-    wget dmenu kitty tdesktop vscode chromium
+    wget rofi kitty tdesktop vscode chromium
     flameshot git firefox bitwarden ghc openjdk
     discord libreoffice nodejs yarn
     logseq thunderbird osu-lazer icalingua
@@ -33,6 +33,7 @@ with lib;
     pkgs.inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
     jetbrains.idea-community jetbrains.goland jetbrains.clion go_1_18 gcc
     nix-index clang cmake gnumake mtr android-studio
+    xorg.xbacklight xorg.xmodmap
   ];
   nixpkgs.overlays = [(self: super: {
     picom = super.picom.overrideAttrs (x: {

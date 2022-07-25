@@ -17,14 +17,17 @@ import Control.Monad.IO.Class
 import qualified XMonad.StackSet as S
 
 cfg = ewmh $ ewmhFullscreen $ docks $ bar $ pagerHints $ flip additionalKeysP
-      ([ ("<XF86AudioMute>"       , spawn "amixer -q sset Master toggle")
-      ,  ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 2%-")
-      ,  ("<XF86AudioRaiseVolume>", spawn "amixer -q sset Master 2%+")
-      ,  ("M-s"                   , spawn "flameshot gui")
-      ,  ("<XF86Calculater>"      , spawn "systemctl hibernate")
-      ,  ("<XF86MyComputer>"      , spawn "dm-tool lock")
-      ,  ("M-n"                   , nextScreen)
-      ,  ("M-2"                   , liftIO $ return ()) -- noop
+      ([ ("<XF86AudioMute>"        , spawn "amixer -q sset Master toggle")
+      ,  ("<XF86AudioLowerVolume>" , spawn "amixer -q sset Master 5%-")
+      ,  ("<XF86AudioRaiseVolume>" , spawn "amixer -q sset Master 5%+")
+      ,  ("M-s"                    , spawn "flameshot gui")
+      ,  ("M-p"                    , spawn "rofi -show run")
+      ,  ("<XF86Calculater>"       , spawn "systemctl hibernate")
+      ,  ("<XF86MyComputer>"       , spawn "dm-tool lock")
+      ,  ("<XF86MonBrightnessUp>"  , spawn "xbacklight +15")
+      ,  ("<XF86MonBrightnessDown>", spawn "xbacklight -15")
+      ,  ("M-n"                    , nextScreen)
+      ,  ("M-2"                    , liftIO $ return ()) -- noop
       ] ++
       [(if key /= 2 -- workspace keybindings
             then "M-" ++ show key
@@ -50,4 +53,7 @@ start = do
   spawnOn "4:pass" "bitwarden"
   spawnOn "6:mail" "thunderbird"
 
-main = spawnPipe "@feh@/bin/feh --bg-fill @bg@" >> xmonad cfg
+main = do
+  spawnPipe "@feh@/bin/feh --bg-fill @bg@"
+  spawnPipe "xmodmap -e 'keycode 86 = Home'"
+  xmonad cfg
