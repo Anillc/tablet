@@ -51,6 +51,7 @@ with lib;
       ];
       files = [
         ".gitconfig"
+        ".wakatime.cfg"
       ];
     };
   };
