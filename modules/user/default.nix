@@ -4,6 +4,8 @@ with builtins;
 with lib;
 
 {
+  sops.age.keyFile = "/var/lib/sops.key";
+  security.pki.certificates = [ (builtins.readFile ./root.crt) ];
   security.sudo.wheelNeedsPassword = false;
   environment.shells = [ pkgs.fish ];
   users.users.anillc = {
@@ -15,8 +17,24 @@ with lib;
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.anillc = import ./home.nix;
+    sharedModules = [ ./home.nix ];
+    users.anillc = {};
   };
+  time.timeZone = "Asia/Shanghai";
+  networking.firewall.enable = false;
+  programs.vim.defaultEditor = true;
+  virtualisation.virtualbox.host.enable = true;
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+  };
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  programs.nix-ld.enable = true;
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+  powerManagement.powertop.enable = true;
   environment.persistence."/persist" = {
     users.anillc = {
       directories = [

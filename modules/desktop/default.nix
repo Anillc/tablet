@@ -40,7 +40,7 @@ with lib;
     settings = {
       blur-method = "dual_kawase";
       blur-size = 12;
-      corner-radius = 14;
+      corner-radius = 7;
       rounded-corners-exclude = [
         "window_type = 'dock'"
         "window_type = 'desktop'"
@@ -50,6 +50,10 @@ with lib;
   fonts.fonts = with pkgs; [
     jetbrains-mono
     source-han-sans
+  ];
+
+  home-manager.sharedModules = [
+    ./home.nix
   ];
 
   # from https://github.com/taffybar/taffybar/issues/403

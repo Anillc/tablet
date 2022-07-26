@@ -23,18 +23,6 @@
     kernelModules = [ "kvm-intel" ];
     initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
     initrd.luks.devices.root.device = "/dev/disk/by-uuid/58d02335-f2ec-4b7b-bcfe-9aa6f54c427d";
-    # initrd.systemd = {
-    #   enable = true;
-    #   emergencyAccess = true;
-    #   storePaths = [
-    #     "${config.boot.initrd.systemd.package}/lib/systemd/systemd-cryptsetup"
-    #   ];
-    #   contents = {
-    #     "/etc/crypttab".text = ''
-    #       root /dev/nvme0n1p2 - fido2-device=auto
-    #     '';
-    #   };
-    # };
     resumeDevice = "/dev/mapper/root";
     kernelParams = [ "resume_offset=1127116" ];
     tmpOnTmpfs = true;

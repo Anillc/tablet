@@ -4,27 +4,7 @@ with builtins;
 with lib;
 
 {
-  xsession = {
-    enable = true;
-    numlock.enable = true;
-  };
-  services.polybar = {
-    enable = true;
-    package = pkgs.polybarFull;
-    script = "polybar example &";
-    config = ./polybar.ini;
-  };
-  programs.kitty = {
-    enable = true;
-    font = {
-      name = "jetbrains mono";
-      size = 12;
-    };
-    settings = {
-      background = "#111111";
-      background_opacity = "0.8";
-    };
-  };
+  home.stateVersion = "22.05";
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
@@ -50,5 +30,4 @@ with lib;
   programs.starship.enable = true;
   programs.gpg.enable = true;
   services.gpg-agent.enable = true;
-  home.stateVersion = "22.05";
 }
