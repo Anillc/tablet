@@ -10,10 +10,11 @@ with lib;
   environment.shells = [ pkgs.fish ];
   users.users.anillc = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "adbusers" ];
     shell = pkgs.fish;
     hashedPassword = "$6$Gb5yWjYmsBX72y3Q$SAg7ym2VszDOiZw2Dmo.3R7fBAg3LHCqHcTkggNaNHOGnaaQLptoETbIVM2c4Ox2sxOZm6IC4anA9L5A3MDKk.";
   };
+  programs.adb.enable = true;
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
