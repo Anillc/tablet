@@ -3,7 +3,9 @@
 with builtins;
 with lib;
 
-{
+let
+  share = pkgs.callPackage ./share.nix {};
+in {
   nixpkgs.config.allowUnfree = true;
   nix = {
     package = pkgs.nixUnstable;
@@ -33,7 +35,7 @@ with lib;
     pkgs.inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
     jetbrains.idea-community jetbrains.goland jetbrains.clion go_1_18 gcc
     nix-index clang cmake gnumake mtr android-studio
-    xorg.xbacklight xorg.xmodmap
+    xorg.xbacklight xorg.xmodmap scrcpy share
   ];
   nixpkgs.overlays = [(self: super: {
     picom = super.picom.overrideAttrs (x: {

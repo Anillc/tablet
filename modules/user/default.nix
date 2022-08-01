@@ -36,6 +36,8 @@ with lib;
     dockerCompat = true;
   };
   powerManagement.powertop.enable = true;
+  programs.kdeconnect.enable = true;
+  programs.steam.enable = true;
   environment.persistence."/persist" = {
     users.anillc = {
       directories = [
@@ -56,6 +58,7 @@ with lib;
         ".config/JetBrains"
         ".config/Logseq"
         ".config/icalingua"
+        ".config/kdeconnect"
         ".cache/netease-cloud-music"
         ".cache/nix-index"
         ".cache/nix"
