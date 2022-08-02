@@ -56,6 +56,7 @@ with lib;
         ".config/Element"
         ".config/VirtualBox"
         ".config/JetBrains"
+        ".config/Google"
         ".config/Logseq"
         ".config/icalingua"
         ".config/kdeconnect"
