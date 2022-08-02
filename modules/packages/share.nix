@@ -4,7 +4,7 @@ with builtins;
 with lib;
 
 writeScriptBin "share-file" ''
-  export PATH=$PATH:${makeBinPath [ kdeconnect ]}
+  export PATH=$PATH:${makeBinPath [ xclip kdeconnect ]}
   ID=$(kdeconnect-cli -a --id-only)
   if [ -z "$ID" ]; then
     echo "Coudn't find a device."
