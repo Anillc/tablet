@@ -44,6 +44,7 @@ with lib;
       rounded-corners-exclude = [
         "window_type = 'dock'"
         "window_type = 'desktop'"
+        "class_g = 'Dunst'"
       ];
     };
   };

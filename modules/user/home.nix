@@ -30,4 +30,13 @@ with lib;
   programs.starship.enable = true;
   programs.gpg.enable = true;
   services.gpg-agent.enable = true;
+  services.dunst = {
+    enable = true;
+    settings.global = {
+      transparency = 40;
+      font = "JetBrains Mono";
+      background = "#282a2e";
+      frame_width = 0;
+    };
+  };
 }
