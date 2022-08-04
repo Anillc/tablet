@@ -37,6 +37,7 @@ with lib;
       font = "JetBrains Mono";
       background = "#282a2e";
       frame_width = 0;
+      width = 500;
     };
   };
 }
