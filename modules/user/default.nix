@@ -24,13 +24,14 @@ with lib;
   time.timeZone = "Asia/Shanghai";
   networking.firewall.enable = false;
   programs.vim.defaultEditor = true;
-  virtualisation.virtualbox.host.enable = true;
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;
   };
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ];
   programs.nix-ld.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.libvirtd.enable = true;
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
