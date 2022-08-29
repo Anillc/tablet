@@ -29,7 +29,11 @@
     url = "github:numtide/flake-utils";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = inputs@{ self, nixpkgs, impermanence, sops-nix, home-manager, nur, nickcao, nixos-cn, anillc, flake-utils }: flake-utils.lib.eachDefaultSystem (system: let
+  inputs.nix-matlab = {
+    url = "gitlab:doronbehar/nix-matlab";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+  outputs = inputs@{ self, nixpkgs, impermanence, sops-nix, home-manager, nur, nickcao, nixos-cn, anillc, flake-utils, nix-matlab }: flake-utils.lib.eachDefaultSystem (system: let
     pkgs = import nixpkgs { inherit system; };
   in {
     devShell = pkgs.mkShell {
@@ -45,6 +49,7 @@
             inherit inputs;
           } // anillc.packages.${system})
           nur.overlay nixos-cn.overlay
+          nix-matlab.overlay
         ]; }
         sops-nix.nixosModules.sops
         impermanence.nixosModules.impermanence

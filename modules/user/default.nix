@@ -31,7 +31,6 @@ with lib;
   boot.binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ];
   programs.nix-ld.enable = true;
   virtualisation.virtualbox.host.enable = true;
-  virtualisation.libvirtd.enable = true;
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
@@ -58,8 +57,6 @@ with lib;
         ".config/VirtualBox"
         ".config/JetBrains"
         ".config/Google"
-        ".config/Logseq"
-        ".config/icalingua"
         ".config/kdeconnect"
         ".cache/netease-cloud-music"
         ".cache/nix-index"

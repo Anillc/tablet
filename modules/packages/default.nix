@@ -29,14 +29,13 @@ in {
   environment.systemPackages = with pkgs; [
     wget rofi kitty tdesktop vscode chromium
     flameshot git firefox bitwarden ghc openjdk
-    discord libreoffice nodejs yarn
-    logseq thunderbird osu-lazer icalingua
+    discord libreoffice nodejs yarn thunderbird
     pkgs.inputs.nickcao.packages.${pkgs.system}.wemeet
     pkgs.inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
-    jetbrains.idea-community jetbrains.goland jetbrains.clion go_1_18 gcc
+    jetbrains.idea-community gcc
     nix-index clang cmake gnumake mtr android-studio
     xorg.xbacklight xorg.xmodmap scrcpy libnotify
-    virt-manager
+    matlab-shell
   ] ++ share;
   nixpkgs.overlays = [(self: super: {
     picom = super.picom.overrideAttrs (x: {
