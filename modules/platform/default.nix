@@ -17,6 +17,7 @@
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.pulseaudio.enable = true;
+  services.pipewire.enable = true;
   hardware.enableRedistributableFirmware = true;
   system.stateVersion = "22.05";
   boot = {

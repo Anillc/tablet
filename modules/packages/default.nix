@@ -30,7 +30,7 @@ in {
     wget rofi kitty tdesktop vscode chromium
     flameshot git firefox bitwarden ghc openjdk
     discord libreoffice nodejs yarn thunderbird
-    pkgs.inputs.nickcao.packages.${pkgs.system}.wemeet
+    nur.repos.linyinfeng.wemeet
     pkgs.inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
     jetbrains.idea-community gcc
     nix-index clang cmake gnumake mtr android-studio
