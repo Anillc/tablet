@@ -35,6 +35,9 @@ in {
     jetbrains.idea-community gcc
     nix-index clang cmake gnumake mtr android-studio
     xorg.xbacklight xorg.xmodmap scrcpy libnotify
+    (pkgs.rust-bin.stable.latest.default.override {
+      extensions = ["rust-src"];
+    })
     matlab-shell
   ] ++ share;
   nixpkgs.overlays = [(self: super: {

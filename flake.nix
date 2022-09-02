@@ -1,6 +1,7 @@
 {
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.impermanence.url = "github:nix-community/impermanence";
+  inputs.rust-overlay.url = "github:oxalica/rust-overlay";
   inputs.sops-nix = {
     url = "github:Mic92/sops-nix";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -33,7 +34,10 @@
     url = "gitlab:doronbehar/nix-matlab";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = inputs@{ self, nixpkgs, impermanence, sops-nix, home-manager, nur, nickcao, nixos-cn, anillc, flake-utils, nix-matlab }: flake-utils.lib.eachDefaultSystem (system: let
+  outputs = inputs@{
+    self, nixpkgs, impermanence, sops-nix, home-manager, nur,
+    nickcao, nixos-cn, anillc, flake-utils, nix-matlab, rust-overlay
+  }: flake-utils.lib.eachDefaultSystem (system: let
     pkgs = import nixpkgs { inherit system; };
   in {
     devShell = pkgs.mkShell {
@@ -49,6 +53,7 @@
             inherit inputs;
           } // anillc.packages.${system})
           nur.overlay nixos-cn.overlay
+          rust-overlay.overlay
           nix-matlab.overlay
         ]; }
         sops-nix.nixosModules.sops
