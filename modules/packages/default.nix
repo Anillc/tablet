@@ -27,7 +27,7 @@ in {
   };
   programs.command-not-found.enable = false;
   environment.systemPackages = with pkgs; [
-    wget rofi kitty tdesktop vscode chromium
+    wget rofi kitty tdesktop vscode-fhs chromium
     flameshot git firefox bitwarden ghc openjdk
     discord libreoffice nodejs yarn thunderbird
     nur.repos.linyinfeng.wemeet
