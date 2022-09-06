@@ -26,7 +26,6 @@
     initrd.luks.devices.root.device = "/dev/disk/by-uuid/58d02335-f2ec-4b7b-bcfe-9aa6f54c427d";
     resumeDevice = "/dev/mapper/root";
     kernelParams = [ "resume_offset=1127116" ];
-    tmpOnTmpfs = true;
     loader = {
       grub = {
         enable = true;
@@ -64,6 +63,12 @@
     device = "/dev/mapper/root";
     fsType = "btrfs";
     options = [ "subvol=swap" "noatime" "compress-force=zstd" "space_cache=v2" ];
+    neededForBoot = true;
+  };
+  fileSystems."/tmp" = {
+    device = "/dev/mapper/root";
+    fsType = "btrfs";
+    options = [ "subvol=tmp" "noatime" "compress-force=zstd" "space_cache=v2" ];
     neededForBoot = true;
   };
 }
