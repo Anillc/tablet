@@ -38,7 +38,7 @@ in {
     (pkgs.rust-bin.stable.latest.default.override {
       extensions = ["rust-src"];
     })
-    matlab-shell file 
+    matlab-shell file libclang
   ] ++ share;
   nixpkgs.overlays = [(self: super: {
     picom = super.picom.overrideAttrs (x: {

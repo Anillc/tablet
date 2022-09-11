@@ -24,5 +24,8 @@ with lib;
       background = "#111111";
       background_opacity = "0.8";
     };
+    keybindings = {
+      "f1" = "launch --stdin-source=@screen_scrollback --type=overlay vim + -";
+    };
   };
 }
