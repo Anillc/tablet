@@ -28,7 +28,7 @@ in {
   programs.command-not-found.enable = false;
   environment.systemPackages = with pkgs; [
     wget rofi kitty tdesktop vscode-fhs chromium
-    flameshot git firefox bitwarden ghc openjdk
+    flameshot git firefox bitwarden openjdk
     discord libreoffice nodejs yarn thunderbird
     nur.repos.linyinfeng.wemeet
     pkgs.inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
@@ -39,6 +39,7 @@ in {
       extensions = ["rust-src"];
     })
     matlab-shell file libclang
+    haskell-language-server cabal-install ghc
   ] ++ share;
   nixpkgs.overlays = [(self: super: {
     picom = super.picom.overrideAttrs (x: {
