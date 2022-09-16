@@ -40,6 +40,7 @@ in {
     })
     matlab-shell file libclang
     haskell-language-server cabal-install ghc
+    wine winetricks
   ] ++ share;
   nixpkgs.overlays = [(self: super: {
     picom = super.picom.overrideAttrs (x: {

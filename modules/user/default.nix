@@ -64,10 +64,10 @@ with lib;
         ".thunderbird"
         ".minecraft"
         ".mozilla"
-        ".logseq"
         ".vscode"
         ".gnupg"
         ".local"
+        ".wine"
         ".ssh"
       ];
       files = [

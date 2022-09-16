@@ -19,6 +19,7 @@
   hardware.pulseaudio.enable = true;
   services.pipewire.enable = true;
   hardware.enableRedistributableFirmware = true;
+  hardware.opengl.driSupport32Bit = true;
   system.stateVersion = "22.05";
   boot = {
     kernelModules = [ "kvm-intel" ];
