@@ -27,7 +27,11 @@ in {
   };
   programs.command-not-found.enable = false;
   environment.systemPackages = with pkgs; [
-    wget rofi kitty tdesktop vscode-fhs chromium
+    (callPackage ./vscode.nix {})
+    (rust-bin.stable.latest.default.override {
+      extensions = ["rust-src"];
+    })
+    wget rofi kitty tdesktop chromium
     flameshot git firefox bitwarden openjdk
     discord libreoffice nodejs yarn thunderbird
     nur.repos.linyinfeng.wemeet
@@ -35,9 +39,6 @@ in {
     jetbrains.idea-community gcc
     nix-index clang cmake gnumake mtr android-studio
     xorg.xbacklight xorg.xmodmap scrcpy libnotify
-    (pkgs.rust-bin.stable.latest.default.override {
-      extensions = ["rust-src"];
-    })
     matlab-shell file libclang
     haskell-language-server cabal-install ghc
     wine winetricks
