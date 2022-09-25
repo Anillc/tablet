@@ -11,6 +11,7 @@
     vadimcn.vscode-lldb
     eamodio.gitlens
     haskell.haskell
+    vscodevim.vim
     bbenoist.nix
   ] ++ vscode-utils.extensionsFromVscodeMarketplace [
     {
