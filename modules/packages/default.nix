@@ -28,7 +28,7 @@ in {
   programs.command-not-found.enable = false;
   environment.systemPackages = with pkgs; [
     (callPackage ./vscode.nix {})
-    (rust-bin.stable.latest.default.override {
+    (rust-bin.nightly.latest.default.override {
       extensions = ["rust-src"];
     })
     wget rofi kitty tdesktop chromium

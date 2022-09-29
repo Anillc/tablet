@@ -53,7 +53,7 @@
             inherit inputs;
           } // anillc.packages.${system})
           nur.overlay nixos-cn.overlay
-          rust-overlay.overlay
+          rust-overlay.overlays.default
           nix-matlab.overlay
         ]; }
         sops-nix.nixosModules.sops
