@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-nixos-rebuild --print-build-logs switch --use-remote-sudo --flake .
+nixos-rebuild -L -v switch --use-remote-sudo --flake .

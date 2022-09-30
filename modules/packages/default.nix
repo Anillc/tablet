@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 with builtins;
 with lib;
@@ -9,8 +9,8 @@ in {
   nixpkgs.config.allowUnfree = true;
   nix = {
     package = pkgs.nixUnstable;
-    nixPath = [ "nixpkgs=${pkgs.inputs.nixpkgs}" ];
-    registry.p.flake = pkgs.inputs.self;
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+    registry.p.flake = inputs.self;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
@@ -35,7 +35,7 @@ in {
     flameshot git firefox bitwarden openjdk
     discord libreoffice nodejs yarn thunderbird
     nur.repos.linyinfeng.wemeet
-    pkgs.inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
+    inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
     jetbrains.idea-community gcc
     nix-index clang cmake gnumake mtr android-studio
     xorg.xbacklight xorg.xmodmap scrcpy libnotify
