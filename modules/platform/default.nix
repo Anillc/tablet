@@ -1,8 +1,6 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [ ./config.nix ];
-
   environment.persistence."/persist" = {
     directories = [
       "/var/lib"
@@ -24,7 +22,7 @@
   hardware.opengl.driSupport32Bit = true;
   system.stateVersion = "22.05";
   boot = {
-    kernelModules = [ "kvm-intel" "vrf" ];
+    kernelModules = [ "kvm-intel" ];
     initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
     initrd.luks.devices.root.device = "/dev/disk/by-uuid/58d02335-f2ec-4b7b-bcfe-9aa6f54c427d";
     resumeDevice = "/dev/mapper/root";

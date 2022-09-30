@@ -2,7 +2,6 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.impermanence.url = "github:nix-community/impermanence";
   inputs.rust-overlay.url = "github:oxalica/rust-overlay";
-  inputs.config.url = "github:Anillc/config";
   inputs.sops-nix = {
     url = "github:Mic92/sops-nix";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -36,7 +35,7 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = inputs@{
-    self, config, nixpkgs, impermanence, sops-nix, home-manager, nur,
+    self, nixpkgs, impermanence, sops-nix, home-manager, nur,
     nickcao, nixos-cn, anillc, flake-utils, nix-matlab, rust-overlay
   }: flake-utils.lib.eachDefaultSystem (system: let
     pkgs = import nixpkgs { inherit system; };
@@ -48,10 +47,11 @@
   }) // {
     nixosConfigurations.an = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
       modules = [
         { nixpkgs.overlays = [
-          (self: super: anillc.packages.${system})
+          (self: super: {
+            inherit inputs;
+          } // anillc.packages.${system})
           nur.overlay nixos-cn.overlay
           rust-overlay.overlays.default
           nix-matlab.overlay
