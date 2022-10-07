@@ -5,7 +5,7 @@ with lib;
 
 {
   imports = [
-    ./clash.nix
+    # ./clash.nix
   ];
   networking.hostName = "an";
   networking.networkmanager.enable = true;
