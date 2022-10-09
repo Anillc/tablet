@@ -61,6 +61,8 @@ with lib;
         ".cache/netease-cloud-music"
         ".cache/nix-index"
         ".cache/nix"
+        ".cache/huggingface"
+        ".cache/pip"
         ".thunderbird"
         ".minecraft"
         ".mozilla"
