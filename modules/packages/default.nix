@@ -37,11 +37,12 @@ in {
     nur.repos.linyinfeng.wemeet
     pkgs.inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
     jetbrains.idea-community gcc
-    nix-index clang cmake gnumake mtr android-studio
+    nix-index clang-tools cmake gnumake mtr android-studio
     xorg.xbacklight xorg.xmodmap scrcpy libnotify
     matlab-shell file libclang
     haskell-language-server cabal-install ghc
     wine winetricks
+    kicad
   ] ++ share;
   nixpkgs.overlays = [(self: super: {
     picom = super.picom.overrideAttrs (x: {
