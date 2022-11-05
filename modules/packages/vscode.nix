@@ -6,6 +6,7 @@
 }: vscode-with-extensions.override {
   vscodeExtensions = with vscode-extensions; [
     llvm-vs-code-extensions.vscode-clangd
+    justusadam.language-haskell
     WakaTime.vscode-wakatime
     rust-lang.rust-analyzer
     vadimcn.vscode-lldb

@@ -14,6 +14,7 @@ with lib;
     shellInit = ''
       export TERM=xterm
       alias pb="curl --data-binary @- https://pb.nichi.co/"
+      __git.init
     '';
     plugins = [
       {
@@ -21,13 +22,16 @@ with lib;
         src = pkgs.fetchFromGitHub {
           owner = "jhillyerd";
           repo = "plugin-git";
-          rev = "2a3e35c05bdc5b9005f917d5281eb866b2e13104";
-          sha256 = "sha256-tWiGIB6yHfZ+QSNJrahHxRQCIOaOlSNFby4bGIOIwic=";
+          rev = "cc5999fa296c18105fb62f1637deec1d12454129";
+          sha256 = "sha256-NaDZLmktuwlYxxzwDoVKgd8bEY+Wy9b2Qaz0CTf8V/Q=";
         };
       }
     ];
   };
-  programs.starship.enable = true;
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+  };
   programs.gpg.enable = true;
   services.gpg-agent.enable = true;
   services.dunst = {
