@@ -1,4 +1,4 @@
-{ runtimeShell, kdeconnect, xclip, lib, libnotify, writeScriptBin, ... }:
+{ runtimeShell, plasma5Packages, xclip, lib, libnotify, writeScriptBin, ... }:
 
 with builtins;
 with lib;
@@ -7,7 +7,7 @@ let
   same = ''
     #!${runtimeShell}
     set -e
-    export PATH=$PATH:${makeBinPath [ xclip kdeconnect libnotify ]}
+    export PATH=$PATH:${makeBinPath [ xclip plasma5Packages.kdeconnect-kde libnotify ]}
     ID=$(kdeconnect-cli -a --id-only)
     if [ -z "$ID" ]; then
       echo "Coudn't find a device."

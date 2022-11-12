@@ -2,6 +2,7 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.impermanence.url = "github:nix-community/impermanence";
   inputs.rust-overlay.url = "github:oxalica/rust-overlay";
+  inputs.nixos-cn.url = "github:nixos-cn/flakes";
   inputs.sops-nix = {
     url = "github:Mic92/sops-nix";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -12,10 +13,6 @@
   };
   inputs.nur = {
     url = "github:nix-community/NUR";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-  inputs.nixos-cn = {
-    url = "github:nixos-cn/flakes";
     inputs.nixpkgs.follows = "nixpkgs";
   };
   inputs.nickcao = {
