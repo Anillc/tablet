@@ -3,6 +3,8 @@
   inputs.impermanence.url = "github:nix-community/impermanence";
   inputs.rust-overlay.url = "github:oxalica/rust-overlay";
   inputs.nixos-cn.url = "github:nixos-cn/flakes";
+  inputs.flake-utils.url = "github:numtide/flake-utils";
+  inputs.nur.url = "github:nix-community/NUR";
   inputs.sops-nix = {
     url = "github:Mic92/sops-nix";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -11,20 +13,12 @@
     url = "github:nix-community/home-manager";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  inputs.nur = {
-    url = "github:nix-community/NUR";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
   inputs.nickcao = {
     url = "github:NickCao/flakes";
     inputs.nixpkgs.follows = "nixpkgs";
   };
   inputs.anillc = {
     url = "github:Anillc/flakes";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-  inputs.flake-utils = {
-    url = "github:numtide/flake-utils";
     inputs.nixpkgs.follows = "nixpkgs";
   };
   inputs.nix-matlab = {

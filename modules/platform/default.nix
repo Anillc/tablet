@@ -25,6 +25,7 @@
     kernelModules = [ "kvm-intel" ];
     initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
     initrd.luks.devices.root.device = "/dev/disk/by-uuid/58d02335-f2ec-4b7b-bcfe-9aa6f54c427d";
+    # initrd.systemd.enable = true;
     resumeDevice = "/dev/mapper/root";
     kernelParams = [ "resume_offset=1127116" ];
     loader = {
