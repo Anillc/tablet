@@ -16,7 +16,7 @@ in {
     '';
     settings = {
       substituters = [
-        # "https://mirror.sjtu.edu.cn/nix-channels/store"
+        "https://mirror.sjtu.edu.cn/nix-channels/store"
         "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
         "https://anillc.cachix.org"
       ];
@@ -42,7 +42,7 @@ in {
     matlab-shell file libclang
     haskell-language-server cabal-install ghc
     wine winetricks
-    kicad
+    kicad element-desktop
   ] ++ share;
   nixpkgs.overlays = [(self: super: {
     picom = super.picom.overrideAttrs (x: {
