@@ -33,5 +33,11 @@
       version = "0.40.13";
       sha256 = "sha256-IDCvqRKEqdP9QUejkE/Xe4+I0ma/We634bfSX8HZ2bI=";
     }
+    {
+      name = "language-gas-x86";
+      publisher = "basdp";
+      version = "0.0.2";
+      sha256 = "sha256-PbXhOsoR0/5wXuFrzwCcauM1uGgfQoSRTj0gPVVZ4Kg=";
+    }
   ];
 }
