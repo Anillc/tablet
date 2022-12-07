@@ -31,9 +31,10 @@ in {
     (rust-bin.nightly.latest.default.override {
       extensions = ["rust-src"];
     })
-    wget rofi kitty tdesktop chromium
+    tdesktop discord element-desktop qq
+    wget rofi kitty chromium
     flameshot git firefox bitwarden openjdk
-    discord libreoffice nodejs yarn thunderbird
+    libreoffice nodejs yarn thunderbird
     nur.repos.linyinfeng.wemeet
     pkgs.inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
     jetbrains.idea-community gcc
@@ -42,7 +43,7 @@ in {
     matlab-shell file libclang
     haskell-language-server cabal-install ghc
     wine winetricks
-    kicad element-desktop
+    kicad
   ] ++ share;
   nixpkgs.overlays = [(self: super: {
     picom = super.picom.overrideAttrs (x: {

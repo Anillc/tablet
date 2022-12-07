@@ -58,6 +58,7 @@ with lib;
         ".config/JetBrains"
         ".config/Google"
         ".config/kdeconnect"
+        ".config/QQ"
         ".cache/netease-cloud-music"
         ".cache/nix-index"
         ".cache/nix"
