@@ -42,8 +42,8 @@ in {
     xorg.xbacklight xorg.xmodmap scrcpy libnotify
     matlab-shell file libclang
     haskell-language-server cabal-install ghc
-    wine winetricks
-    kicad
+    wine winetricks kicad go gopls
+    mtr dig unar iperf htop socat ncdu ripgrep
   ] ++ share;
   nixpkgs.overlays = [(self: super: {
     picom = super.picom.overrideAttrs (x: {
