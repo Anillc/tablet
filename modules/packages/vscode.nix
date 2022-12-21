@@ -14,6 +14,7 @@
     haskell.haskell
     vscodevim.vim
     bbenoist.nix
+    golang.go
   ] ++ vscode-utils.extensionsFromVscodeMarketplace [
     {
       name = "vscode-direnv";
