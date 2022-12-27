@@ -10,6 +10,7 @@
     WakaTime.vscode-wakatime
     rust-lang.rust-analyzer
     vadimcn.vscode-lldb
+    jnoortheen.nix-ide
     eamodio.gitlens
     haskell.haskell
     vscodevim.vim
