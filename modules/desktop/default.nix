@@ -36,7 +36,7 @@ with lib;
   };
   services.picom = {
     enable = true;
-    experimentalBackends = true;
+    # experimentalBackends = true;
     backend = "glx";
     settings = {
       blur-method = "dual_kawase";

@@ -32,7 +32,7 @@
       name = "volar";
       publisher = "Vue";
       version = "0.40.13";
-      sha256 = "sha256-IDCvqRKEqdP9QUejkE/Xe4+I0ma/We634bfSX8HZ2bI=";
+      sha256 = "sha256-M14Zgb+8O6BrzdFDVJf9xuydYq1Me2tCdPn3fSATR0E=";
     }
     {
       name = "language-gas-x86";
