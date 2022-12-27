@@ -41,7 +41,7 @@ with lib;
     settings = {
       blur-method = "dual_kawase";
       blur-size = 12;
-      corner-radius = 7;
+      # corner-radius = 7;
       rounded-corners-exclude = [
         "window_type = 'dock'"
         "window_type = 'desktop'"

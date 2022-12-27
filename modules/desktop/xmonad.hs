@@ -11,6 +11,7 @@ import XMonad.Hooks.StatusBar.PP
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.TaffybarPagerHints
 import XMonad.Layout.Spacing
+import XMonad.Layout.Grid
 import XMonad.Actions.SpawnOn
 import XMonad.Actions.CycleWS
 import Control.Monad.IO.Class
@@ -33,13 +34,13 @@ cfg = ewmh $ ewmhFullscreen $ docks $ bar $ pagerHints $ flip additionalKeysP
             then "M-" ++ show key
             else "M-0", windows $ S.greedyView name) | (key, name) <- zip [1..] ws
       ]) $ def
-      { terminal        = "kitty"
-      , workspaces      = ws
-      , focusedBorderColor = "#AAAAAA"
+      { terminal           = "kitty"
+      , workspaces         = ws
+      , focusedBorderColor = "#4F5B66"
       , normalBorderColor  = "#FFFFFF"
-      , layoutHook      = spacingWithEdge 3 $ layoutHook def
-      , manageHook      = manageHook  def <+> manageSpawn
-      , startupHook     = startupHook def <+> start
+      , layoutHook         = spacingWithEdge 3 $ Tall 1 (3/100) (1/2) ||| Grid ||| Full
+      , manageHook         = manageHook  def <+> manageSpawn
+      , startupHook        = startupHook def <+> start
       }
 
 bar = flip withEasySB keyBinding $ statusBarProp "polybar" $ pure def
