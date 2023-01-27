@@ -14,6 +14,7 @@ with lib;
     shellInit = ''
       export TERM=xterm
       alias pb="curl --data-binary @- https://pb.nichi.co/"
+      alias s="systemctl"
       __git.init
     '';
     plugins = [
