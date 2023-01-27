@@ -30,6 +30,12 @@ in {
     (callPackage ./vscode.nix {})
     (rust-bin.nightly.latest.default.override {
       extensions = ["rust-src"];
+      targets = [
+        "x86_64-unknown-linux-gnu"
+        "x86_64-unknown-linux-musl"
+        "riscv64gc-unknown-linux-gnu"
+        "wasm32-wasi"
+      ];
     })
     tdesktop discord element-desktop qq
     wget rofi kitty chromium
