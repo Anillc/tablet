@@ -12,16 +12,18 @@ in {
     nixPath = [ "nixpkgs=${pkgs.inputs.nixpkgs}" ];
     registry.p.flake = pkgs.inputs.self;
     extraOptions = ''
-      experimental-features = nix-command flakes
+      experimental-features = nix-command flakes ca-derivations
     '';
     settings = {
       substituters = [
         "https://mirror.sjtu.edu.cn/nix-channels/store"
         "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
         "https://anillc.cachix.org"
+        "https://cache.ngi0.nixos.org"
       ];
       trusted-public-keys = [
         "anillc.cachix.org-1:VmWDYKHoDiT0CKs+6daDcTz3Ur+gkw4k0kcHIeF6dF8="
+        "cache.ngi0.nixos.org-1:KqH5CBLNSyX184S9BKZJo1LxrxJ9ltnY2uAs5c/f1MA="
       ];
     };
   };
