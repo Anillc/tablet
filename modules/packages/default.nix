@@ -35,8 +35,10 @@ in {
       targets = [
         "x86_64-unknown-linux-gnu"
         "x86_64-unknown-linux-musl"
+        "x86_64-unknown-uefi"
         "riscv64gc-unknown-linux-gnu"
         "wasm32-wasi"
+        "wasm32-unknown-unknown"
       ];
     })
     tdesktop discord element-desktop qq
