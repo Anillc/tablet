@@ -50,7 +50,7 @@ in {
     jetbrains.idea-community gcc
     nix-index clang-tools cmake gnumake mtr android-studio
     xorg.xbacklight xorg.xmodmap scrcpy libnotify
-    matlab-shell file libclang
+    file libclang
     haskell-language-server cabal-install ghc
     wine winetricks kicad go gopls
     mtr dig unar iperf htop socat ncdu ripgrep

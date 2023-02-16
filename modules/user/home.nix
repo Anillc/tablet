@@ -23,8 +23,8 @@ with lib;
         src = pkgs.fetchFromGitHub {
           owner = "jhillyerd";
           repo = "plugin-git";
-          rev = "cc5999fa296c18105fb62f1637deec1d12454129";
-          sha256 = "sha256-NaDZLmktuwlYxxzwDoVKgd8bEY+Wy9b2Qaz0CTf8V/Q=";
+          rev = "0d597a23ce2e9a067131effca5aeb1a1068de0d0";
+          sha256 = "sha256-MfrRQdcj7UtIUgtqKjt4lqFLpA6YZgKjE03VaaypNzE=";
         };
       }
     ];

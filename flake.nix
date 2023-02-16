@@ -21,13 +21,9 @@
     url = "github:Anillc/flakes";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  inputs.nix-matlab = {
-    url = "gitlab:doronbehar/nix-matlab";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
   outputs = inputs@{
     self, nixpkgs, impermanence, sops-nix, home-manager, nur,
-    nickcao, nixos-cn, anillc, flake-utils, nix-matlab, rust-overlay
+    nickcao, nixos-cn, anillc, flake-utils, rust-overlay
   }: flake-utils.lib.eachDefaultSystem (system: let
     pkgs = import nixpkgs { inherit system; };
   in {
@@ -45,7 +41,6 @@
           } // anillc.packages.${system})
           nur.overlay nixos-cn.overlay
           rust-overlay.overlays.default
-          nix-matlab.overlay
         ]; }
         sops-nix.nixosModules.sops
         impermanence.nixosModules.impermanence
