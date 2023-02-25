@@ -11,11 +11,13 @@ with lib;
     GDK_DPI_SCALE = "0.5";
     _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
   };
+  hardware.nvidia.modesetting.enable = true;
+  hardware.nvidia.powerManagement.enable = true;
   services.xserver = {
     enable = true;
     wacom.enable = true;
     dpi = 180;
-    videoDrivers = [ "intel" "nvidia" ];
+    videoDrivers = [ "nvidia" ];
     libinput.enable = true;
     desktopManager.runXdgAutostartIfNone = true; # fcitx5
     displayManager = {
@@ -34,6 +36,11 @@ with lib;
         bg = ./bg.png;
       });
     };
+  };
+  hardware.nvidia.prime = {
+    offload.enable = true;
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
   };
   services.xrdp.enable = true;
   i18n.inputMethod = {
