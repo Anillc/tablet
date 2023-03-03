@@ -5,17 +5,11 @@ with lib;
 
 {
   boot.kernelParams = [ "acpi_backlight=vendor" "video.use_native_backlight=1" "hid_apple.fnmode=2" ];
-  console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
-  environment.variables = {
-    GDK_SCALE = "2";
-    GDK_DPI_SCALE = "0.5";
-    _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
-  };
+  services.xserver.config = readFile ./xorg.conf;
   services.xserver = {
     enable = true;
     wacom.enable = true;
-    dpi = 180;
-    videoDrivers = [ "intel" "nvidia" ];
+    videoDrivers = [ "nvidia" ];
     libinput.enable = true;
     desktopManager.runXdgAutostartIfNone = true; # fcitx5
     displayManager = {
