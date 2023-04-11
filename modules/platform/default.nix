@@ -22,24 +22,21 @@
   hardware.opengl.driSupport32Bit = true;
   system.stateVersion = "22.05";
   boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [ "kvm-intel" ];
-    initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-    initrd.luks.devices.root.device = "/dev/disk/by-uuid/58d02335-f2ec-4b7b-bcfe-9aa6f54c427d";
-    # initrd.systemd.enable = true;
-    resumeDevice = "/dev/mapper/root";
-    kernelParams = [ "resume_offset=1127116" ];
-    loader = {
-      grub = {
-        enable = true;
-        version = 2;
-        device = "nodev";
-        efiSupport = true;
-      };
-      efi = {
-        efiSysMountPoint = "/boot";
-        canTouchEfiVariables = true;
-      };
+    initrd.kernelModules = [ "tpm" "tpm_tis" "tpm_crb" ];
+    initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" ];
+    initrd.luks.devices.root.device = "/dev/disk/by-uuid/a149a2ae-b7e1-4201-b978-e380c0acf6f4";
+    initrd.systemd.enable = true;
+    bootspec.enable = true;
+    loader.systemd-boot.enable = lib.mkForce false;
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/persist/secureboot";
     };
+    resumeDevice = "/dev/mapper/root";
+    kernelParams = [ "resume_offset=533760" "video=efifb" "fbcon=rotate:1" ];
+    loader.efi.canTouchEfiVariables = true;
   };
   swapDevices = [{ device = "/swap/swapfile"; }];
   fileSystems."/" = {
@@ -47,7 +44,7 @@
     options = [ "defaults" "mode=755" ];
   };
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/C2E7-1545";
+    device = "/dev/disk/by-uuid/94F6-73BE";
     fsType = "vfat";
   };
   fileSystems."/nix" = {
@@ -67,10 +64,10 @@
     options = [ "subvol=swap" "noatime" "compress-force=zstd" "space_cache=v2" ];
     neededForBoot = true;
   };
-  fileSystems."/tmp" = {
-    device = "/dev/mapper/root";
-    fsType = "btrfs";
-    options = [ "subvol=tmp" "noatime" "compress-force=zstd" "space_cache=v2" ];
-    neededForBoot = true;
-  };
+  #fileSystems."/tmp" = {
+  #  device = "/dev/mapper/root";
+  #  fsType = "btrfs";
+  #  options = [ "subvol=tmp" "noatime" "compress-force=zstd" "space_cache=v2" ];
+  #  neededForBoot = true;
+  #};
 }

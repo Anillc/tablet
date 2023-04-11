@@ -17,13 +17,17 @@
     url = "github:NickCao/flakes";
     inputs.nixpkgs.follows = "nixpkgs";
   };
+  inputs.lanzaboote = {
+    url = "github:nix-community/lanzaboote/195e29f93516b4133c72bc524ff1c0d5e7ede5e6";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
   inputs.anillc = {
     url = "github:Anillc/flakes";
     inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = inputs@{
     self, nixpkgs, impermanence, sops-nix, home-manager, nur,
-    nickcao, nixos-cn, anillc, flake-utils, rust-overlay
+    nickcao, nixos-cn, anillc, flake-utils, rust-overlay, lanzaboote
   }: flake-utils.lib.eachDefaultSystem (system: let
     pkgs = import nixpkgs { inherit system; };
   in {
@@ -32,7 +36,7 @@
     };
     packages = pkgs;
   }) // {
-    nixosConfigurations.an = nixpkgs.lib.nixosSystem rec {
+    nixosConfigurations.duet = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       modules = [
         { nixpkgs.overlays = [
@@ -45,6 +49,7 @@
         sops-nix.nixosModules.sops
         impermanence.nixosModules.impermanence
         home-manager.nixosModules.home-manager
+        lanzaboote.nixosModules.lanzaboote
         ./modules
       ];
     };

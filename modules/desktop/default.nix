@@ -4,61 +4,27 @@ with builtins;
 with lib;
 
 {
-  boot.kernelParams = [ "acpi_backlight=vendor" "video.use_native_backlight=1" "hid_apple.fnmode=2" ];
-  services.xserver.config = readFile ./xorg.conf;
   services.xserver = {
     enable = true;
     wacom.enable = true;
-    videoDrivers = [ "nvidia" ];
     libinput.enable = true;
-    desktopManager.runXdgAutostartIfNone = true; # fcitx5
-    displayManager = {
-      lightdm.enable = true;
-      autoLogin = {
-        enable = true;
-        user = "anillc";
-      };
-    };
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-      config = builtins.readFile (pkgs.substituteAll {
-        inherit (pkgs) feh;
-        src = ./xmonad.hs;
-        bg = ./bg.png;
-      });
-    };
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
   };
-  services.xrdp.enable = true;
+  programs.xwayland.enable = true;
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [ fcitx5-chinese-addons ];
-  };
-  services.picom = {
-    enable = true;
-    # experimentalBackends = true;
-    backend = "glx";
-    settings = {
-      blur-method = "dual_kawase";
-      blur-size = 12;
-      # corner-radius = 7;
-      rounded-corners-exclude = [
-        "window_type = 'dock'"
-        "window_type = 'desktop'"
-        "class_g = 'Dunst'"
-      ];
-    };
   };
   fonts.fonts = with pkgs; [
     jetbrains-mono
     source-han-sans
   ];
-
   home-manager.sharedModules = [
-    ./home.nix
+    # ./home.nix
   ];
-
-  # from https://github.com/taffybar/taffybar/issues/403
-  # resolve tray not showing in polybar
-  services.xserver.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
+  systemd.tmpfiles.rules = [
+    "L /run/gdm/.config/monitors.xml     -      -     - - ${./monitors.xml}"
+    "L /home/anillc/.config/monitors.xml - anillc users - ${./monitors.xml}"
+  ];
 }

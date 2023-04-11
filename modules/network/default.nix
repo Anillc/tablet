@@ -7,6 +7,6 @@ with lib;
   imports = [
     # ./clash.nix
   ];
-  networking.hostName = "an";
+  networking.hostName = "duet";
   networking.networkmanager.enable = true;
 }

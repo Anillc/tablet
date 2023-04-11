@@ -8,9 +8,10 @@ with lib;
   security.pki.certificates = [ (builtins.readFile ./root.crt) ];
   security.sudo.wheelNeedsPassword = false;
   environment.shells = [ pkgs.fish ];
+  programs.fish.enable = true;
   users.users.anillc = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "adbusers" ];
+    extraGroups = [ "wheel" "adbusers" "dialout" "networkmanager" ];
     shell = pkgs.fish;
     hashedPassword = "$6$Gb5yWjYmsBX72y3Q$SAg7ym2VszDOiZw2Dmo.3R7fBAg3LHCqHcTkggNaNHOGnaaQLptoETbIVM2c4Ox2sxOZm6IC4anA9L5A3MDKk.";
   };
@@ -35,13 +36,13 @@ with lib;
     enable = true;
     dockerCompat = true;
   };
-  powerManagement.powertop.enable = true;
   programs.kdeconnect.enable = true;
   programs.steam.enable = true;
   environment.persistence."/persist" = {
     users.anillc = {
       directories = [
         ".android"
+        ".arduino15"
         ".cache/Google"
         ".cache/huggingface"
         ".cache/JetBrains"
@@ -49,8 +50,8 @@ with lib;
         ".cache/nix"
         ".cache/pip"
         ".config/Bitwarden"
-        ".config/chromium"
         ".config/Code"
+        ".config/dconf"
         ".config/discord"
         ".config/Element"
         ".config/fcitx5"
@@ -61,6 +62,7 @@ with lib;
         ".config/QQ"
         ".config/sops"
         ".config/VirtualBox"
+        ".config/vivaldi"
         ".gnupg"
         ".gradle"
         ".local"
@@ -71,10 +73,16 @@ with lib;
         ".vscode"
         ".wine"
         "Android"
+        "Arduino"
+        "Desktop"
         "Documents"
         "Downloads"
+        "Music"
+        "Pictures"
         "Projects"
-        "temp"
+        "Public"
+        "Templates"
+        "Videos"
       ];
       files = [
         ".gitconfig"
