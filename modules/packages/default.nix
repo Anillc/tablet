@@ -55,6 +55,6 @@ in {
     wine winetricks kicad go gopls
     mtr dig unar iperf htop socat ncdu ripgrep
     nil freerdp ffmpeg-full
-    sbctl arduino
+    sbctl arduino clash-verge
   ] ++ share;
 }

@@ -64,10 +64,10 @@
     options = [ "subvol=swap" "noatime" "compress-force=zstd" "space_cache=v2" ];
     neededForBoot = true;
   };
-  #fileSystems."/tmp" = {
-  #  device = "/dev/mapper/root";
-  #  fsType = "btrfs";
-  #  options = [ "subvol=tmp" "noatime" "compress-force=zstd" "space_cache=v2" ];
-  #  neededForBoot = true;
-  #};
+  fileSystems."/tmp" = {
+    device = "/dev/mapper/root";
+    fsType = "btrfs";
+    options = [ "subvol=tmp" "noatime" "compress-force=zstd" "space_cache=v2" ];
+    neededForBoot = true;
+  };
 }

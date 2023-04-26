@@ -51,6 +51,7 @@ with lib;
         ".cache/pip"
         ".config/Bitwarden"
         ".config/Code"
+        ".config/clash-verge"
         ".config/dconf"
         ".config/discord"
         ".config/Element"
