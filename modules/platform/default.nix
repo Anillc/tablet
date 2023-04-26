@@ -20,6 +20,7 @@
   services.pipewire.enable = true;
   hardware.enableRedistributableFirmware = true;
   hardware.opengl.driSupport32Bit = true;
+  hardware.sensor.iio.enable = true;
   system.stateVersion = "22.05";
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;

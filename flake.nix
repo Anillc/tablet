@@ -18,7 +18,7 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
   inputs.lanzaboote = {
-    url = "github:nix-community/lanzaboote/195e29f93516b4133c72bc524ff1c0d5e7ede5e6";
+    url = "github:nix-community/lanzaboote";
     inputs.nixpkgs.follows = "nixpkgs";
   };
   inputs.anillc = {

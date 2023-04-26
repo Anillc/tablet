@@ -11,6 +11,8 @@ with lib;
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
+  services.gnome.tracker.enable = false;
+  services.gnome.tracker-miners.enable = false;
   programs.xwayland.enable = true;
   i18n.inputMethod = {
     enabled = "fcitx5";

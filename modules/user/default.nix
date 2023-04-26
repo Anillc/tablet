@@ -31,7 +31,6 @@ with lib;
   };
   boot.binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ];
   programs.nix-ld.enable = true;
-  virtualisation.virtualbox.host.enable = true;
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
@@ -62,7 +61,6 @@ with lib;
         ".cache/netease-cloud-music"
         ".config/QQ"
         ".config/sops"
-        ".config/VirtualBox"
         ".config/vivaldi"
         ".gnupg"
         ".gradle"
