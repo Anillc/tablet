@@ -16,7 +16,7 @@ in {
     '';
     settings = {
       substituters = [
-        "https://mirror.sjtu.edu.cn/nix-channels/store"
+        # "https://mirror.sjtu.edu.cn/nix-channels/store"
         "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
         "https://anillc.cachix.org"
         "https://cache.ngi0.nixos.org"
@@ -28,6 +28,10 @@ in {
     };
   };
   programs.command-not-found.enable = false;
+  programs.clash-verge = {
+    enable = true;
+    tunMode = true;
+  };
   environment.systemPackages = with pkgs; [
     (callPackage ./vscode.nix {})
     (rust-bin.nightly.latest.default.override {
@@ -55,6 +59,6 @@ in {
     wine winetricks kicad go gopls
     mtr dig unar iperf htop socat ncdu ripgrep
     nil freerdp ffmpeg-full
-    sbctl arduino clash-verge
+    sbctl arduino
   ] ++ share;
 }

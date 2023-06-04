@@ -29,7 +29,8 @@
     initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" ];
     initrd.luks.devices.root.device = "/dev/disk/by-uuid/a149a2ae-b7e1-4201-b978-e380c0acf6f4";
     initrd.systemd.enable = true;
-    bootspec.enable = true;
+    # enabled by default
+    # bootspec.enable = true;
     loader.systemd-boot.enable = lib.mkForce false;
     lanzaboote = {
       enable = true;
