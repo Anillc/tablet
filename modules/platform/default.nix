@@ -72,4 +72,11 @@
     options = [ "subvol=tmp" "noatime" "compress-force=zstd" "space_cache=v2" ];
     neededForBoot = true;
   };
+
+  # TODO: remove
+  # services.udev.extraRules = ''
+  #   KERNEL=="*", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ACTION=="add", ATTR{idVendor}=="f622", MODE="666", TAG="mvusb_dev", RUN+="${pkgs.runtimeShell} -c 'echo 1 >> /home/anillc/d'"
+  #   KERNEL=="*", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ACTION=="add", ATTR{idVendor}=="080b", MODE="666", TAG="mvusb_dev"
+  #   KERNEL=="*", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ACTION=="remove", TAG=="mvusb_dev"
+  # '';
 }

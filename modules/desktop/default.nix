@@ -29,4 +29,5 @@ with lib;
     "L /run/gdm/.config/monitors.xml     -      -     - - ${./monitors.xml}"
     "L /home/anillc/.config/monitors.xml - anillc users - ${./monitors.xml}"
   ];
+  virtualisation.waydroid.enable = true;
 }
