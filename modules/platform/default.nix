@@ -24,7 +24,11 @@
   system.stateVersion = "22.05";
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelModules = [ "kvm-intel" ];
+    kernelModules = [ "kvm-intel" "v4l2loopback" ];
+    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+    extraModprobeConfig = ''
+      options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
+    '';
     initrd.kernelModules = [ "tpm" "tpm_tis" "tpm_crb" ];
     initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" ];
     initrd.luks.devices.root.device = "/dev/disk/by-uuid/a149a2ae-b7e1-4201-b978-e380c0acf6f4";

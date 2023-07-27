@@ -13,15 +13,16 @@
     jnoortheen.nix-ide
     eamodio.gitlens
     haskell.haskell
+    github.copilot
     vscodevim.vim
     bbenoist.nix
     golang.go
   ] ++ vscode-utils.extensionsFromVscodeMarketplace [
     {
-      name = "vscode-direnv";
-      publisher = "Rubymaniac";
-      version = "0.0.2";
-      sha256 = "sha256-TVvjKdKXeExpnyUh+fDPl+eSdlQzh7lt8xSfw1YgtL4=";
+      name = "direnv";
+      publisher = "mkhl";
+      version = "0.14.0";
+      sha256 = "sha256-T+bt6ku+zkqzP1gXNLcpjtFAevDRiSKnZaE7sM4pUOs=";
     }
     {
       name = "discord-vscode";
@@ -40,6 +41,12 @@
       publisher = "basdp";
       version = "0.0.2";
       sha256 = "sha256-PbXhOsoR0/5wXuFrzwCcauM1uGgfQoSRTj0gPVVZ4Kg=";
+    }
+    {
+      name = "agda-mode";
+      publisher = "banacorn";
+      version = "0.3.12";
+      sha256 = "sha256-RazX+d48xLAUB6YkKVg/E+KHasOV/F395I/q/7DMu6M=";
     }
   ];
 }
