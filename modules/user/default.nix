@@ -73,6 +73,7 @@ with lib;
         ".thunderbird"
         ".vscode"
         ".wine"
+        ".zotero"
         "Android"
         "Arduino"
         "Desktop"
@@ -84,6 +85,7 @@ with lib;
         "Public"
         "Templates"
         "Videos"
+        "Zotero"
       ];
       files = [
         ".gitconfig"
