@@ -18,7 +18,7 @@ with lib;
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [ fcitx5-chinese-addons ];
   };
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     jetbrains-mono
     source-han-sans
   ];
