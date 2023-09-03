@@ -23,7 +23,7 @@ with lib;
     source-han-sans
   ];
   home-manager.sharedModules = [
-    # ./home.nix
+    ./dconf.nix
   ];
   systemd.tmpfiles.rules = [
     "L /run/gdm/.config/monitors.xml     -      -     - - ${./monitors.xml}"

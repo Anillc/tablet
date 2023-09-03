@@ -41,6 +41,16 @@
     kernelParams = [ "resume_offset=533760" "video=efifb" "fbcon=rotate:1" ];
     loader.efi.canTouchEfiVariables = true;
   };
+  # FIXME: systemd-inhibit --list  gnome-settings-daemon
+  services.logind = {
+    # powerKey = "suspend-then-hibernate";
+    # suspendKey = "suspend-then-hibernate";
+    powerKey = "hibernate";
+    suspendKey = "hibernate";
+  };
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=1h
+  '';
   swapDevices = [{ device = "/swap/swapfile"; }];
   fileSystems."/" = {
     fsType = "tmpfs";

@@ -45,8 +45,13 @@ in {
         "wasm32-unknown-unknown"
       ];
     })
+    (vivaldi.override {
+      inherit vivaldi-ffmpeg-codecs widevine-cdm;
+      proprietaryCodecs = true;
+      enableWidevine = true;
+    })
     tdesktop discord element-desktop qq
-    wget kitty vivaldi
+    wget kitty
     git firefox bitwarden openjdk
     libreoffice nodejs yarn thunderbird
     nur.repos.linyinfeng.wemeet
