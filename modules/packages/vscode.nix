@@ -11,6 +11,7 @@
     rust-lang.rust-analyzer
     vadimcn.vscode-lldb
     jnoortheen.nix-ide
+    adpyke.codesnap
     eamodio.gitlens
     haskell.haskell
     github.copilot

@@ -58,7 +58,7 @@ in {
     pkgs.inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
     jetbrains.idea-community gcc
     nix-index clang-tools llvm cmake gnumake mtr android-studio
-    xorg.xbacklight xorg.xmodmap scrcpy libnotify
+    xorg.xbacklight xorg.xmodmap wl-clipboard scrcpy libnotify
     file libclang
     haskell-language-server cabal-install ghc
     wine winetricks kicad go gopls
