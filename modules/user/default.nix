@@ -35,7 +35,6 @@ with lib;
     enable = true;
     dockerCompat = true;
   };
-  programs.kdeconnect.enable = true;
   programs.steam.enable = true;
   environment.persistence."/persist" = {
     users.anillc = {

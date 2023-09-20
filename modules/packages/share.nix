@@ -35,7 +35,12 @@ in [
   '')
   (writeScriptBin "share-text" ''
     ${same}
-    kdeconnect-cli -d $ID --share-text "$*"
+    if [ ! -z "$1" ]; then
+      kdeconnect-cli -d $ID --share-text "&*"
+      notify-send 'share-file' '✓'
+      exit 0
+    fi
+    kdeconnect-cli -d $ID --share-text "$(xclip -selection clipboard -o)"
     notify-send 'share-file' '✓'
   '')
 ]
