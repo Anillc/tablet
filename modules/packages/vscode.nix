@@ -49,5 +49,11 @@
       version = "0.3.12";
       sha256 = "sha256-RazX+d48xLAUB6YkKVg/E+KHasOV/F395I/q/7DMu6M=";
     }
+    {
+      name = "mesonbuild";
+      publisher = "mesonbuild";
+      version = "1.12.1";
+      sha256 = "sha256-LPJmqR60Hupjs/ogClHF7WdVgV/ZCakILdrYdRPCaDo=";
+    }
   ];
 }
