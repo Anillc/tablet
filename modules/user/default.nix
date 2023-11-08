@@ -42,6 +42,7 @@ with lib;
       directories = [
         ".android"
         ".arduino15"
+        ".cache/coursier"
         ".cache/Google"
         ".cache/huggingface"
         ".cache/JetBrains"

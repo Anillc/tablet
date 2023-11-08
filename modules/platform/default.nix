@@ -25,7 +25,7 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [ "kvm-intel" "v4l2loopback" ];
-    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+    extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
     initrd.kernelModules = [ "tpm" "tpm_tis" "tpm_crb" ];
     initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" ];
     initrd.luks.devices.root.device = "/dev/disk/by-uuid/a149a2ae-b7e1-4201-b978-e380c0acf6f4";
