@@ -17,20 +17,9 @@
     github.copilot
     vscodevim.vim
     bbenoist.nix
+    mkhl.direnv
     golang.go
   ] ++ vscode-utils.extensionsFromVscodeMarketplace [
-    {
-      name = "direnv";
-      publisher = "mkhl";
-      version = "0.14.0";
-      sha256 = "sha256-T+bt6ku+zkqzP1gXNLcpjtFAevDRiSKnZaE7sM4pUOs=";
-    }
-    {
-      name = "discord-vscode";
-      publisher = "icrawl";
-      version = "5.8.0";
-      sha256 = "sha256-IU/looiu6tluAp8u6MeSNCd7B8SSMZ6CEZ64mMsTNmU=";
-    }
     {
       name = "volar";
       publisher = "Vue";

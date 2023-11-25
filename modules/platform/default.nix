@@ -23,7 +23,7 @@
   hardware.sensor.iio.enable = true;
   system.stateVersion = "22.05";
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [ "kvm-intel" "v4l2loopback" ];
     extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
     initrd.kernelModules = [ "tpm" "tpm_tis" "tpm_crb" ];

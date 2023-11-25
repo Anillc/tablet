@@ -7,7 +7,6 @@ with lib;
   sops.age.keyFile = "/var/lib/sops.key";
   security.pki.certificates = [ (builtins.readFile ./root.crt) ];
   security.sudo.wheelNeedsPassword = false;
-  environment.shells = [ pkgs.fish ];
   programs.fish.enable = true;
   users.users.anillc = {
     isNormalUser = true;
