@@ -64,7 +64,7 @@ in {
     wine winetricks kicad go gopls
     mtr dig unar iperf htop socat ncdu ripgrep
     nil freerdp ffmpeg-full
-    sbctl arduino zotero
+    sbctl arduino zotero xournalpp
     (agda.withPackages (p: [ p.standard-library p.cubical ]))
     agda-language-server
   ] ++ share;

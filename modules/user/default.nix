@@ -63,6 +63,7 @@ with lib;
         ".config/QQ"
         ".config/sops"
         ".config/vivaldi"
+        ".config/xournalpp"
         ".cargo"
         ".gnupg"
         ".gradle"

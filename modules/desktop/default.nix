@@ -14,6 +14,13 @@ with lib;
   services.gnome.tracker.enable = false;
   services.gnome.tracker-miners.enable = false;
   programs.xwayland.enable = true;
+  services.iptsd = {
+    enable = true;
+    config.Touch = {
+      DisableOnStylus = true;
+      DisableOnPalm = true;
+    };
+  };
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [ fcitx5-chinese-addons ];
@@ -21,6 +28,7 @@ with lib;
   fonts.packages = with pkgs; [
     jetbrains-mono
     source-han-sans
+    font-awesome
   ];
   home-manager.sharedModules = [
     ./dconf.nix

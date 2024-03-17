@@ -9,8 +9,10 @@
     justusadam.language-haskell
     WakaTime.vscode-wakatime
     rust-lang.rust-analyzer
+    mgt19937.typst-preview
     vadimcn.vscode-lldb
     jnoortheen.nix-ide
+    nvarner.typst-lsp
     adpyke.codesnap
     eamodio.gitlens
     haskell.haskell
