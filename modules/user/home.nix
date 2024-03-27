@@ -13,6 +13,7 @@ with lib;
     enable = true;
     shellInit = ''
       export TERM=xterm
+      export MOZ_USE_XINPUT2=1
       alias pb="curl --data-binary @- https://pb.nichi.co/"
       alias s="systemctl"
     '';
@@ -25,7 +26,10 @@ with lib;
     enableFishIntegration = true;
   };
   programs.gpg.enable = true;
-  services.gpg-agent.enable = true;
+  services.gpg-agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-gnome3;
+  };
   xdg = {
     enable = true;
     mimeApps = let
