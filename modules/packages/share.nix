@@ -19,7 +19,7 @@ in [
   (writeScriptBin "share-file" ''
     ${same}
     if [ ! -z "$1" ]; then
-      kdeconnect-cli -d $ID --share $1
+      kdeconnect-cli -d $ID --share "$1"
       notify-send 'share-file' '✓'
       exit 0
     fi
@@ -30,13 +30,13 @@ in [
       notify-send 'share-file' "No image in clipboard"
       exit 1
     fi
-    kdeconnect-cli -d $ID --share $IMG
+    kdeconnect-cli -d $ID --share "$IMG"
     notify-send 'share-file' '✓'
   '')
   (writeScriptBin "share-text" ''
     ${same}
     if [ ! -z "$1" ]; then
-      kdeconnect-cli -d $ID --share-text "&*"
+      kdeconnect-cli -d $ID --share-text "$*"
       notify-send 'share-file' '✓'
       exit 0
     fi
