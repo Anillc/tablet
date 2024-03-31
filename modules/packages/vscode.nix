@@ -13,6 +13,7 @@
     vadimcn.vscode-lldb
     jnoortheen.nix-ide
     nvarner.typst-lsp
+    scala-lang.scala
     adpyke.codesnap
     eamodio.gitlens
     haskell.haskell
