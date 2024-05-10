@@ -29,6 +29,7 @@ with lib;
     jetbrains-mono
     source-han-sans
     font-awesome
+    nerdfonts
   ];
   home-manager.sharedModules = [
     ./dconf.nix
