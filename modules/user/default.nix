@@ -35,7 +35,6 @@ with lib;
     dockerCompat = true;
   };
   programs.kdeconnect.enable = true;
-  programs.steam.enable = true;
   environment.persistence."/persist" = {
     users.anillc = {
       directories = [
@@ -46,7 +45,6 @@ with lib;
         ".cache/huggingface"
         ".cache/JetBrains"
         ".cache/nix-index"
-        ".cache/netease-cloud-music"
         ".cache/nix"
         ".cache/pip"
         ".config/Bitwarden"

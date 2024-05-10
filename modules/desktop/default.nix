@@ -7,13 +7,13 @@ with lib;
   services.xserver = {
     enable = true;
     wacom.enable = true;
-    libinput.enable = true;
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
   services.gnome.tracker.enable = false;
   services.gnome.tracker-miners.enable = false;
   programs.xwayland.enable = true;
+  services.libinput.enable = true;
   services.iptsd = {
     enable = true;
     config.Touch = {

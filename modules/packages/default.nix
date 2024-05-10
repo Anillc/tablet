@@ -8,7 +8,6 @@ let
 in {
   nixpkgs.config.allowUnfree = true;
   nix = {
-    package = pkgs.nixUnstable;
     nixPath = [ "nixpkgs=${pkgs.inputs.nixpkgs}" ];
     registry.p.flake = pkgs.inputs.self;
     extraOptions = ''
@@ -51,17 +50,16 @@ in {
       enableWidevine = true;
     })
     tdesktop discord element-desktop qq
-    wget kitty
+    wget kitty whois
     git firefox bitwarden openjdk scala mill
     libreoffice nodejs yarn thunderbird
     nur.repos.linyinfeng.wemeet
-    pkgs.inputs.nixos-cn.legacyPackages.${pkgs.system}.netease-cloud-music
     jetbrains.idea-community gcc
     nix-index clang-tools llvm cmake gnumake mtr android-studio
     xorg.xbacklight xorg.xmodmap wl-clipboard scrcpy libnotify
     file libclang meson ninja muon
     haskell-language-server cabal-install ghc
-    wine winetricks kicad go gopls
+    wine winetricks go gopls
     mtr dig unar iperf htop socat ncdu ripgrep
     nil freerdp ffmpeg-full
     sbctl arduino zotero_7 xournalpp
