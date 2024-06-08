@@ -19,6 +19,7 @@
     haskell.haskell
     github.copilot
     vscodevim.vim
+    prisma.prisma
     bbenoist.nix
     mkhl.direnv
     golang.go
