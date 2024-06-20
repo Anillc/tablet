@@ -10,5 +10,6 @@ with lib;
     ./network
     ./packages
     ./user
+    ./secrets
   ];
 }
