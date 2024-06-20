@@ -1,5 +1,5 @@
 {
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
   inputs.impermanence.url = "github:nix-community/impermanence";
   inputs.rust-overlay.url = "github:oxalica/rust-overlay";
   inputs.flake-utils.url = "github:numtide/flake-utils";

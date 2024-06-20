@@ -16,16 +16,38 @@ with lib.hm.gvariant;
 
     "org/gnome/Console" = {
       font-scale = 1.0;
+      last-window-maximised = false;
       last-window-size = mkTuple [ 781 462 ];
+    };
+
+    "org/gnome/Extensions" = {
+      window-maximized = false;
     };
 
     "org/gnome/Geary" = {
       migrated-config = true;
     };
 
+    "org/gnome/Snapshot" = {
+      is-maximized = false;
+      window-height = 640;
+      window-width = 800;
+    };
+
     "org/gnome/Totem" = {
       active-plugins = [ "vimeo" "variable-rate" "skipto" "screenshot" "screensaver" "save-file" "rotation" "recent" "movie-properties" "open-directory" "mpris" "autoload-subtitles" "apple-trailers" ];
       subtitle-encoding = "UTF-8";
+    };
+
+    "org/gnome/Weather" = {
+      window-height = 415;
+      window-maximized = false;
+      window-width = 992;
+    };
+
+    "org/gnome/baobab/ui" = {
+      is-maximized = false;
+      window-size = mkTuple [ 960 600 ];
     };
 
     "org/gnome/calculator" = {
@@ -64,6 +86,10 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/a11y/applications" = {
       screen-keyboard-enabled = false;
+    };
+
+    "org/gnome/desktop/a11y/keyboard" = {
+      enable = false;
     };
 
     "org/gnome/desktop/app-folders" = {
@@ -159,6 +185,14 @@ with lib.hm.gvariant;
       application-id = "idea-community.desktop";
     };
 
+    "org/gnome/desktop/notifications/application/org-gnome-baobab" = {
+      application-id = "org.gnome.baobab.desktop";
+    };
+
+    "org/gnome/desktop/notifications/application/org-gnome-characters" = {
+      application-id = "org.gnome.Characters.desktop";
+    };
+
     "org/gnome/desktop/notifications/application/org-gnome-console" = {
       application-id = "org.gnome.Console.desktop";
     };
@@ -173,6 +207,10 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/notifications/application/org-gnome-extensions-desktop" = {
       application-id = "org.gnome.Extensions.desktop.desktop";
+    };
+
+    "org/gnome/desktop/notifications/application/org-gnome-extensions" = {
+      application-id = "org.gnome.Extensions.desktop";
     };
 
     "org/gnome/desktop/notifications/application/org-gnome-nautilus" = {
@@ -311,7 +349,7 @@ with lib.hm.gvariant;
 
     "org/gnome/gnome-system-monitor/disktreenew" = {
       col-6-visible = true;
-      col-6-width = 0;
+      col-6-width = 870;
     };
 
     "org/gnome/gnome-system-monitor/proctree" = {
@@ -320,12 +358,24 @@ with lib.hm.gvariant;
       sort-order = 0;
     };
 
+    "org/gnome/maps" = {
+      last-viewed-location = [ 38.427021916443586 (-92.0331028097168) ];
+      map-type = "MapsStreetSource";
+      transportation-type = "pedestrian";
+      window-maximized = true;
+      zoom-level = 19;
+    };
+
     "org/gnome/mutter" = {
       attach-modal-dialogs = true;
       dynamic-workspaces = true;
       edge-tiling = true;
       focus-change-on-pointer-rest = true;
       workspaces-only-on-primary = false;
+    };
+
+    "org/gnome/nautilus/compression" = {
+      default-compression-format = "zip";
     };
 
     "org/gnome/nautilus/preferences" = {
@@ -347,6 +397,10 @@ with lib.hm.gvariant;
 
     "org/gnome/photos" = {
       window-maximized = true;
+    };
+
+    "org/gnome/portal/filechooser/org/telegram/desktop" = {
+      last-folder-path = "/home/anillc/Documents/games/osu/Skins";
     };
 
     "org/gnome/portal/filechooser/vivaldi-stable" = {
@@ -390,9 +444,10 @@ with lib.hm.gvariant;
     "org/gnome/shell" = {
       app-picker-layout = "[{'org.gnome.Geary.desktop': <{'position': <0>}>, 'org.gnome.Contacts.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'org.gnome.clocks.desktop': <{'position': <3>}>, 'org.gnome.Maps.desktop': <{'position': <4>}>, 'org.gnome.Photos.desktop': <{'position': <5>}>, 'org.gnome.Totem.desktop': <{'position': <6>}>, 'android-studio.desktop': <{'position': <7>}>, 'org.gnome.Calculator.desktop': <{'position': <8>}>, 'arduino.desktop': <{'position': <9>}>, 'simple-scan.desktop': <{'position': <10>}>, 'org.gnome.Settings.desktop': <{'position': <11>}>, 'gnome-system-monitor.desktop': <{'position': <12>}>, 'discord.desktop': <{'position': <13>}>, 'Utilities': <{'position': <14>}>, 'element-desktop.desktop': <{'position': <15>}>, 'yelp.desktop': <{'position': <16>}>, 'org.gnome.Extensions.desktop': <{'position': <17>}>, 'org.gnome.Cheese.desktop': <{'position': <18>}>, 'org.fcitx.Fcitx5.desktop': <{'position': <19>}>, 'fcitx5-configtool.desktop': <{'position': <20>}>, 'org.fcitx.fcitx5-migrator.desktop': <{'position': <21>}>, 'firefox.desktop': <{'position': <22>}>, 'clash-verge.desktop': <{'position': <23>}>}, {'fish.desktop': <{'position': <0>}>, 'htop.desktop': <{'position': <1>}>, 'idea-community.desktop': <{'position': <2>}>, 'org.kde.kdeconnect.app.desktop': <{'position': <3>}>, 'org.kde.kdeconnect.nonplasma.desktop': <{'position': <4>}>, 'org.kde.kdeconnect-settings.desktop': <{'position': <5>}>, 'org.kde.kdeconnect.sms.desktop': <{'position': <6>}>, 'kbd-layout-viewer5.desktop': <{'position': <7>}>, 'kitty.desktop': <{'position': <14>}>, 'base.desktop': <{'position': <15>}>, 'calc.desktop': <{'position': <16>}>, 'draw.desktop': <{'position': <17>}>, 'impress.desktop': <{'position': <18>}>, 'math.desktop': <{'position': <19>}>, 'startcenter.desktop': <{'position': <20>}>, 'writer.desktop': <{'position': <21>}>, 'org.gnome.Nautilus.desktop': <{'position': <22>}>, 'org.gnome.Music.desktop': <{'position': <23>}>}, {'nixos-manual.desktop': <{'position': <1>}>, 'Proton Experimental.desktop': <{'position': <2>}>, 'qq.desktop': <{'position': <3>}>, 'scrcpy.desktop': <{'position': <4>}>, 'scrcpy-console.desktop': <{'position': <5>}>, 'org.telegram.desktop.desktop': <{'position': <8>}>, 'org.gnome.TextEditor.desktop': <{'position': <9>}>, 'thunderbird.desktop': <{'position': <10>}>, 'org.gnome.Tour.desktop': <{'position': <11>}>, 'code.desktop': <{'position': <12>}>, 'org.gnome.Epiphany.desktop': <{'position': <13>}>, 'wemeetapp.desktop': <{'position': <14>}>, 'wemeetapp-force-x11.desktop': <{'position': <15>}>, 'winetricks.desktop': <{'position': <16>}>, 'xterm.desktop': <{'position': <17>}>, 'org.gnome.Calendar.desktop': <{'position': <18>}>}]";
       command-history = [ "r" ];
-      disabled-extensions = [ "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "apps-menu@gnome-shell-extensions.gcampax.github.com" "native-window-placement@gnome-shell-extensions.gcampax.github.com" "places-menu@gnome-shell-extensions.gcampax.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com" "window-list@gnome-shell-extensions.gcampax.github.com" "windowsNavigator@gnome-shell-extensions.gcampax.github.com" ];
-      enabled-extensions = [ "improvedosk@nick-shmyrev.dev" "screen-rotate@shyzus.github.io" "osktouchpad@francescocaracciolo.uno" "trayIconsReloaded@selfmade.pl" "topiconsfix@aleskva@devnullmail.com" "appindicatorsupport@rgcjonas.gmail.com" "forge@jmmaranan.com" "blur-my-shell@aunetx" "tiling-assistant@leleat-on-github" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "native-window-placement@gnome-shell-extensions.gcampax.github.com" "places-menu@gnome-shell-extensions.gcampax.github.com" "windowgestures@extension.amarullz.com" "kimpanel@kde.org" "swap-finger-gestures-3-4@icedman.github.com" "disable-gestures-2021@verycrazydog.gmail.com" "gjsosk@vishram1123.com" ];
-      favorite-apps = [ "org.gnome.Console.desktop" "vivaldi-stable.desktop" "bitwarden.desktop" "org.telegram.desktop.desktop" "thunderbird.desktop" "Waydroid.desktop" "zotero.desktop" "com.github.xournalpp.xournalpp.desktop" ];
+      disable-user-extensions = false;
+      disabled-extensions = [ "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "apps-menu@gnome-shell-extensions.gcampax.github.com" "native-window-placement@gnome-shell-extensions.gcampax.github.com" "places-menu@gnome-shell-extensions.gcampax.github.com" "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com" "window-list@gnome-shell-extensions.gcampax.github.com" "windowsNavigator@gnome-shell-extensions.gcampax.github.com" ];
+      enabled-extensions = [ "improvedosk@nick-shmyrev.dev" "screen-rotate@shyzus.github.io" "osktouchpad@francescocaracciolo.uno" "trayIconsReloaded@selfmade.pl" "topiconsfix@aleskva@devnullmail.com" "forge@jmmaranan.com" "blur-my-shell@aunetx" "tiling-assistant@leleat-on-github" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "native-window-placement@gnome-shell-extensions.gcampax.github.com" "places-menu@gnome-shell-extensions.gcampax.github.com" "windowgestures@extension.amarullz.com" "kimpanel@kde.org" "swap-finger-gestures-3-4@icedman.github.com" "disable-gestures-2021@verycrazydog.gmail.com" "gjsosk@vishram1123.com" "appindicatorsupport@rgcjonas.gmail.com" "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com" ];
+      favorite-apps = [ "org.gnome.Console.desktop" "vivaldi-stable.desktop" "bitwarden.desktop" "org.telegram.desktop.desktop" "thunderbird.desktop" "zotero.desktop" "com.github.xournalpp.xournalpp.desktop" "code.desktop" ];
       last-selected-power-profile = "performance";
       welcome-dialog-last-shown-version = "43.3";
     };
@@ -403,6 +458,33 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/extensions/appindicator" = {
       icon-opacity = 243;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell" = {
+      settings-version = 2;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
+      brightness = 0.6;
+      sigma = 30;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
+      blur = true;
+      brightness = 0.6;
+      sigma = 30;
+      static-blur = true;
+      style-dash-to-dock = 0;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/panel" = {
+      brightness = 0.6;
+      sigma = 30;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/window-list" = {
+      brightness = 0.6;
+      sigma = 30;
     };
 
     "org/gnome/shell/extensions/forge" = {
@@ -466,14 +548,30 @@ with lib.hm.gvariant;
       tray-position = "left";
     };
 
+    "org/gnome/shell/extensions/unlock-dialog-background" = {
+      brightness = 0.85;
+      picture-uri = "/home/anillc/Pictures/QQ\22270\29255\&20210725001759.jpg";
+      picture-uri-dark = "/home/anillc/Pictures/QQ\22270\29255\&20210725001759.jpg";
+      sigma = 50;
+    };
+
     "org/gnome/shell/extensions/windowgestures" = {
       swipe3-down = 0;
       swipe3-left = 0;
       swipe3-right = 0;
     };
 
+    "org/gnome/shell/weather" = {
+      automatic-location = true;
+      locations = [];
+    };
+
     "org/gnome/shell/world-clocks" = {
       locations = [];
+    };
+
+    "org/gnome/simple-scan" = {
+      document-type = "photo";
     };
 
     "org/gnome/software" = {
