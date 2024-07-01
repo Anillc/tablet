@@ -27,10 +27,6 @@ in {
     };
   };
   programs.command-not-found.enable = false;
-  programs.clash-verge = {
-    enable = true;
-    tunMode = true;
-  };
   environment.systemPackages = with pkgs; [
     (callPackage ./vscode.nix {})
     (rust-bin.nightly.latest.default.override {

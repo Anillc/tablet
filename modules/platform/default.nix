@@ -7,6 +7,7 @@
       "/var/log"
       "/var/cache"
       "/etc/NetworkManager"
+      "/etc/v2raya"
     ];
     files = [
       "/etc/machine-id"
