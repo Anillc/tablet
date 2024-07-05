@@ -60,6 +60,7 @@ in {
     nil freerdp ffmpeg-full
     sbctl arduino zotero_7 xournalpp
     (agda.withPackages (p: [ p.standard-library p.cubical ]))
-    agda-language-server
+    agda-language-server feishu
+    gnome-network-displays
   ] ++ share;
 }

@@ -20,6 +20,7 @@
     eamodio.gitlens
     haskell.haskell
     github.copilot
+    tomoki1207.pdf
     vscodevim.vim
     prisma.prisma
     bbenoist.nix

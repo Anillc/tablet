@@ -65,6 +65,7 @@ with lib;
         ".config/Google"
         ".config/JetBrains"
         ".config/kdeconnect"
+        ".config/LarkShell"
         ".config/npm-token"
         ".config/QQ"
         ".config/sops"
