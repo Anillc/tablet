@@ -13,6 +13,24 @@
       "/etc/machine-id"
     ];
   };
+  services.restic.backups.persist = {
+    repositoryFile = config.sops.secrets.tablet-backup-restic-repo.path;
+    passwordFile = config.sops.secrets.tablet-backup-restic-passwd.path;
+    environmentFile = config.sops.secrets.tablet-backup-restic-env.path;
+    paths = [ "/persist" ];
+    extraBackupArgs = [
+      "--one-file-system"
+      "--exclude-caches"
+      "--no-scan"
+      "--retry-lock 2h"
+    ];
+    timerConfig = {
+      OnCalendar = "daily";
+      RandomizedDelaySec = "4h";
+      FixedRandomDelay = true;
+      Persistent = true;
+    };
+  };
 
   sound.enable = true;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
