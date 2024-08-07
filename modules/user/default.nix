@@ -31,7 +31,6 @@ with lib;
     users.anillc = {};
   };
   time.timeZone = "Asia/Shanghai";
-  networking.firewall.enable = false;
   programs.vim.defaultEditor = true;
   services.mysql = {
     enable = true;
