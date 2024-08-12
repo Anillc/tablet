@@ -25,7 +25,6 @@
     prisma.prisma
     bbenoist.nix
     mkhl.direnv
-    golang.go
     vue.volar
   ];
 }

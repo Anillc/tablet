@@ -47,7 +47,6 @@ with lib;
     users.anillc = {
       directories = [
         ".android"
-        ".arduino15"
         ".cache/coursier"
         ".cache/Google"
         ".cache/huggingface"
@@ -82,7 +81,6 @@ with lib;
         ".wine"
         ".zotero"
         "Android"
-        "Arduino"
         "Desktop"
         "Documents"
         "Downloads"

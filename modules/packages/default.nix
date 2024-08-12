@@ -29,6 +29,7 @@ in {
   programs.command-not-found.enable = false;
   environment.systemPackages = with pkgs; [
     (callPackage ./vscode.nix {})
+    (agda.withPackages (p: [ p.standard-library p.cubical ]))
     (rust-bin.nightly.latest.default.override {
       extensions = ["rust-src"];
       targets = [
@@ -45,22 +46,57 @@ in {
       proprietaryCodecs = true;
       enableWidevine = true;
     })
-    tdesktop discord element-desktop qq
-    wget kitty whois
-    git firefox bitwarden openjdk scala mill
-    libreoffice nodejs yarn thunderbird
-    nur.repos.linyinfeng.wemeet
-    jetbrains.idea-community gcc
-    nix-index clang-tools llvm cmake gnumake mtr android-studio
-    xorg.xbacklight xorg.xmodmap wl-clipboard scrcpy libnotify
-    file libclang meson ninja muon
-    haskell-language-server cabal-install ghc
-    wine winetricks go gopls
-    mtr dig unar iperf htop socat ncdu ripgrep
-    nil freerdp ffmpeg-full
-    sbctl arduino zotero_7 xournalpp
-    (agda.withPackages (p: [ p.standard-library p.cubical ]))
-    agda-language-server feishu
+    agda-language-server
+    android-studio
+    bitwarden
+    cabal-install
+    clang-tools
+    cmake
+    dig
+    discord
+    element-desktop
+    feishu
+    ffmpeg-full
+    file
+    firefox
+    gcc
+    ghc
+    git
     gnome-network-displays
+    gnumake
+    haskell-language-server
+    htop
+    iperf
+    jetbrains.idea-community
+    kitty
+    libclang
+    libnotify
+    llvm
+    meson
+    mill
+    mtr
+    ncdu
+    nix-index
+    nodejs
+    ninja
+    nur.repos.linyinfeng.wemeet
+    openjdk
+    tdesktop
+    qq
+    ripgrep
+    sbctl
+    scala
+    scrcpy
+    socat
+    thunderbird
+    unar
+    wget
+    whois
+    wine
+    winetricks
+    wl-clipboard
+    xournalpp
+    yarn
+    zotero_7
   ] ++ share;
 }
