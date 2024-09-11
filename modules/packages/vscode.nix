@@ -1,4 +1,8 @@
 {
+  gtk4,
+  writeScript,
+  makeSetupHook,
+  vscode,
   vscode-utils,
   vscode-extensions,
   vscode-with-extensions,
