@@ -3,9 +3,7 @@
 with builtins;
 with lib;
 
-let
-  share = pkgs.callPackage ./share.nix {};
-in {
+{
   nixpkgs.config.allowUnfree = true;
   nix = {
     nixPath = [ "nixpkgs=${pkgs.inputs.nixpkgs}" ];
@@ -27,6 +25,9 @@ in {
     };
   };
   programs.command-not-found.enable = false;
+  programs.fish.enable = true;
+  programs.adb.enable = true;
+  programs.nix-ld.enable = true;
   environment.systemPackages = with pkgs; [
     (callPackage ./vscode.nix {})
     (agda.withPackages (p: [ p.standard-library p.cubical ]))
@@ -105,5 +106,5 @@ in {
     xournalpp
     yarn
     zotero_7
-  ] ++ share;
+  ];
 }

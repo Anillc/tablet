@@ -6,7 +6,6 @@ with lib;
 {
   security.pki.certificates = [ (builtins.readFile ./root.crt) ];
   security.sudo.wheelNeedsPassword = false;
-  programs.fish.enable = true;
   users.users.anillc = {
     isNormalUser = true;
     extraGroups = [ "wheel" "adbusers" "dialout" "networkmanager" ];
@@ -23,7 +22,6 @@ with lib;
       usersFile = config.sops.secrets.oath.path;
     };
   };
-  programs.adb.enable = true;
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -36,13 +34,10 @@ with lib;
     enable = true;
     package = pkgs.mariadb;
   };
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ];
-  programs.nix-ld.enable = true;
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
   };
-  programs.kdeconnect.enable = true;
   environment.persistence."/persist" = {
     users.anillc = {
       directories = [
@@ -62,7 +57,6 @@ with lib;
         ".config/fcitx5"
         ".config/Google"
         ".config/JetBrains"
-        ".config/kdeconnect"
         ".config/LarkShell"
         ".config/npm-token"
         ".config/QQ"
