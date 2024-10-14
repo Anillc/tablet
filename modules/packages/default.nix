@@ -55,7 +55,6 @@ with lib;
         done
       '';
     }))
-    agda-language-server
     android-studio
     bitwarden
     cabal-install
