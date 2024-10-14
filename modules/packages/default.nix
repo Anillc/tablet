@@ -22,6 +22,7 @@ with lib;
         "anillc.cachix.org-1:VmWDYKHoDiT0CKs+6daDcTz3Ur+gkw4k0kcHIeF6dF8="
         "cache.ngi0.nixos.org-1:KqH5CBLNSyX184S9BKZJo1LxrxJ9ltnY2uAs5c/f1MA="
       ];
+      trusted-users = [ "@wheel" ];
     };
   };
   programs.command-not-found.enable = false;
@@ -76,7 +77,6 @@ with lib;
     htop
     iperf
     jetbrains.idea-community
-    kitty
     libclang
     libnotify
     llvm
