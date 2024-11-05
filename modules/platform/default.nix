@@ -1,6 +1,14 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
+  imports = [ {
+    # FIXME
+    # https://github.com/nix-community/impermanence/issues/229
+    # https://github.com/NixOS/nixpkgs/pull/351151
+    boot.initrd.systemd.suppressedUnits = [ "systemd-machine-id-commit.service" ];
+    systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
+  } ];
+
   environment.persistence."/persist" = {
     directories = [
       "/var/lib"
@@ -32,13 +40,11 @@
     };
   };
 
-  sound.enable = true;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.pulseaudio.enable = true;
   services.pipewire.enable = true;
   hardware.enableRedistributableFirmware = true;
-  hardware.opengl.driSupport32Bit = true;
+  hardware.graphics.enable32Bit = true;
   hardware.sensor.iio.enable = true;
   system.stateVersion = "22.05";
   boot = {

@@ -29,7 +29,10 @@ with lib;
     users.anillc = {};
   };
   time.timeZone = "Asia/Shanghai";
-  programs.vim.defaultEditor = true;
+  programs.vim = {
+    enable = true;
+    defaultEditor = true;
+  };
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;

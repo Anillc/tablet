@@ -14,7 +14,6 @@
     wakatime.vscode-wakatime
     myriad-dreamin.tinymist
     rust-lang.rust-analyzer
-    mgt19937.typst-preview
     mesonbuild.mesonbuild
     vadimcn.vscode-lldb
     banacorn.agda-mode
