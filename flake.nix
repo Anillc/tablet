@@ -26,7 +26,7 @@
   };
   outputs = inputs@{
     self, nixpkgs, impermanence, sops-nix, home-manager, nur,
-    nickcao, anillc, flake-utils, rust-overlay, lanzaboote
+    flake-utils, rust-overlay, lanzaboote, ...
   }: flake-utils.lib.eachDefaultSystem (system: let
     pkgs = import nixpkgs { inherit system; };
   in {
@@ -37,11 +37,9 @@
   }) // {
     nixosConfigurations.duet = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
       modules = [
         { nixpkgs.overlays = [
-          (self: super: {
-            inherit inputs;
-          } // anillc.packages.${system})
           rust-overlay.overlays.default
           nur.overlay
         ]; }

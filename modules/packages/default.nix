@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 with builtins;
 with lib;
@@ -6,8 +6,8 @@ with lib;
 {
   nixpkgs.config.allowUnfree = true;
   nix = {
-    nixPath = [ "nixpkgs=${pkgs.inputs.nixpkgs}" ];
-    registry.p.flake = pkgs.inputs.self;
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+    registry.p.flake = inputs.nixpkgs;
     extraOptions = ''
       experimental-features = nix-command flakes ca-derivations
     '';
