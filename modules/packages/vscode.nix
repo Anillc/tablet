@@ -19,6 +19,7 @@
     banacorn.agda-mode
     jnoortheen.nix-ide
     scala-lang.scala
+    scalameta.metals
     adpyke.codesnap
     eamodio.gitlens
     haskell.haskell
