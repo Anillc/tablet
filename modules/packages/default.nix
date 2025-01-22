@@ -39,7 +39,9 @@ with lib;
         "x86_64-unknown-linux-musl"
         "x86_64-unknown-uefi"
         "riscv64gc-unknown-linux-gnu"
-        "wasm32-wasi"
+        "wasm32-wasip1"
+        "wasm32-wasip1-threads"
+        "wasm32-wasip2"
         "wasm32-unknown-unknown"
       ];
     })
@@ -75,11 +77,12 @@ with lib;
     haskell-language-server
     htop
     iperf
-    jetbrains.idea-community
+    # jetbrains.idea-community
     libclang
     libnotify
     llvm
     meson
+    mesonlsp
     mill
     mtr
     ncdu

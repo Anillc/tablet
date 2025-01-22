@@ -41,7 +41,7 @@
       modules = [
         { nixpkgs.overlays = [
           rust-overlay.overlays.default
-          nur.overlay
+          nur.overlays.default
         ]; }
         sops-nix.nixosModules.sops
         impermanence.nixosModules.impermanence

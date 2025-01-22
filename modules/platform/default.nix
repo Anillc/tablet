@@ -1,14 +1,6 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [ {
-    # FIXME
-    # https://github.com/nix-community/impermanence/issues/229
-    # https://github.com/NixOS/nixpkgs/pull/351151
-    boot.initrd.systemd.suppressedUnits = [ "systemd-machine-id-commit.service" ];
-    systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
-  } ];
-
   environment.persistence."/persist" = {
     directories = [
       "/var/lib"

@@ -35,8 +35,7 @@ with lib;
     jetbrains-mono
     source-han-sans
     font-awesome
-    nerdfonts
-  ];
+  ] ++ filter isDerivation (attrValues pkgs.nerd-fonts);
   systemd.tmpfiles.rules = [
     "L /run/gdm/.config/monitors.xml     -      -     - - ${./monitors.xml}"
     "L /home/anillc/.config/monitors.xml - anillc users - ${./monitors.xml}"
