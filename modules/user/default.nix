@@ -4,7 +4,6 @@ with builtins;
 with lib;
 
 {
-  security.pki.certificates = [ (builtins.readFile ./root.crt) ];
   security.sudo.wheelNeedsPassword = false;
   users.users.anillc = {
     isNormalUser = true;
