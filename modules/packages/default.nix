@@ -60,6 +60,7 @@ with lib;
     android-studio
     bitwarden
     cabal-install
+    cargo-expand
     clang-tools
     cmake
     dig
