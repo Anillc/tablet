@@ -9,7 +9,7 @@ with lib;
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     registry.p.flake = inputs.nixpkgs;
     extraOptions = ''
-      experimental-features = nix-command flakes ca-derivations
+      experimental-features = nix-command flakes ca-derivations pipe-operators
     '';
     settings = {
       substituters = lib.mkForce [
