@@ -66,7 +66,7 @@ with lib;
     haskell-language-server
     htop
     iperf
-    # jetbrains.idea-community
+    jetbrains.idea-community
     libclang
     libnotify
     llvm

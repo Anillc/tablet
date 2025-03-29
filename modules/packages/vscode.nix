@@ -24,6 +24,7 @@
     eamodio.gitlens
     haskell.haskell
     github.copilot
+    github.copilot-chat
     tomoki1207.pdf
     vscodevim.vim
     prisma.prisma
