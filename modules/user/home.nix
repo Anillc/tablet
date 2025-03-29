@@ -16,6 +16,7 @@ with lib;
       export MOZ_USE_XINPUT2=1
       alias pb="curl --data-binary @- https://pb.nichi.co/"
       alias s="systemctl"
+      fish_vi_key_bindings
     '';
     plugins = let
       p = with pkgs.fishPlugins; [ plugin-git done puffer ];
