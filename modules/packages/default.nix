@@ -11,19 +11,7 @@ with lib;
     extraOptions = ''
       experimental-features = nix-command flakes ca-derivations pipe-operators
     '';
-    settings = {
-      substituters = lib.mkForce [
-        "https://mirror.sjtu.edu.cn/nix-channels/store"
-        # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-        # "https://anillc.cachix.org"
-        # "https://cache.ngi0.nixos.org"
-      ];
-      trusted-public-keys = [
-        # "anillc.cachix.org-1:VmWDYKHoDiT0CKs+6daDcTz3Ur+gkw4k0kcHIeF6dF8="
-        # "cache.ngi0.nixos.org-1:KqH5CBLNSyX184S9BKZJo1LxrxJ9ltnY2uAs5c/f1MA="
-      ];
-      trusted-users = [ "@wheel" ];
-    };
+    settings.trusted-users = [ "@wheel" ];
   };
   programs.command-not-found.enable = false;
   programs.fish.enable = true;
