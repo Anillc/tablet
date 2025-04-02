@@ -25,6 +25,7 @@ with lib;
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
+    settings.scala.disabled = true;
   };
   programs.gpg.enable = true;
   services.gpg-agent = {
