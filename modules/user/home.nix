@@ -17,6 +17,9 @@ with lib;
       alias pb="curl --data-binary @- https://pb.nichi.co/"
       alias s="systemctl"
       fish_vi_key_bindings
+      for mode in (bind --list-modes)
+        bind -M $mode ctrl-c cancel-commandline
+      end
     '';
     plugins = let
       p = with pkgs.fishPlugins; [ plugin-git done puffer ];
