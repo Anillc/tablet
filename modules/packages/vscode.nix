@@ -16,6 +16,7 @@
     rust-lang.rust-analyzer
     mesonbuild.mesonbuild
     vadimcn.vscode-lldb
+    github.copilot-chat
     banacorn.agda-mode
     jnoortheen.nix-ide
     scala-lang.scala
@@ -24,7 +25,6 @@
     eamodio.gitlens
     haskell.haskell
     github.copilot
-    github.copilot-chat
     tomoki1207.pdf
     vscodevim.vim
     prisma.prisma
