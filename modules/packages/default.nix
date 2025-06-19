@@ -11,7 +11,10 @@ with lib;
     extraOptions = ''
       experimental-features = nix-command flakes ca-derivations pipe-operators
     '';
-    settings.trusted-users = [ "@wheel" ];
+    settings = {
+      trusted-users = [ "@wheel" ];
+      substituters = mkBefore [ "https://mirrors.sjtug.sjtu.edu.cn/nix-channels/store" ];
+    };
   };
   programs.command-not-found.enable = false;
   programs.fish.enable = true;
