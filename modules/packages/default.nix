@@ -49,9 +49,11 @@ with lib;
       '';
     }))
     android-studio
+    attic-client
     bitwarden
     cabal-install
     cargo-expand
+    chromium
     clang-tools
     cmake
     dig
@@ -66,10 +68,14 @@ with lib;
     git
     gnome-network-displays
     gnumake
+    go
     haskell-language-server
     htop
     iperf
     jetbrains.idea-community
+    k9s
+    kubectl
+    kubernetes-helm
     libclang
     libnotify
     llvm

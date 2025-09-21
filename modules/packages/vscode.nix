@@ -31,5 +31,6 @@
     bbenoist.nix
     mkhl.direnv
     vue.volar
+    golang.go
   ];
 }

@@ -11,4 +11,6 @@ with lib;
     enable = true;
     package = pkgs.wireshark;
   };
+
+  services.tailscale.enable = true;
 }
