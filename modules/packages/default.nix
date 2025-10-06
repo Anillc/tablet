@@ -48,31 +48,18 @@ with lib;
         done
       '';
     }))
-    android-studio
     attic-client
-    bitwarden
-    cabal-install
     cargo-expand
-    chromium
     clang-tools
     cmake
     dig
-    discord
-    element-desktop
     feishu
     ffmpeg-full
     file
-    firefox
     gcc
-    ghc
     git
-    gnome-network-displays
     gnumake
     go
-    haskell-language-server
-    htop
-    iperf
-    jetbrains.idea-community
     k9s
     kubectl
     kubernetes-helm
@@ -83,7 +70,6 @@ with lib;
     mesonlsp
     mill
     mtr
-    ncdu
     nix-index
     nodejs
     ninja
@@ -92,16 +78,11 @@ with lib;
     tdesktop
     qq
     ripgrep
-    sbctl
     scala
-    scrcpy
     socat
     thunderbird
     unar
-    wget
     whois
-    wine
-    winetricks
     wl-clipboard
     xournalpp
     yarn
