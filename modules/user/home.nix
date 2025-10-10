@@ -30,6 +30,14 @@ with lib;
     enableFishIntegration = true;
     settings.scala.disabled = true;
   };
+  programs.ghostty = {
+    enable = true;
+    enableFishIntegration = true;
+    settings.keybind = [
+      "ctrl+t=new_tab"
+      "f11=toggle_maximize"
+    ];
+  };
   programs.gpg.enable = true;
   services.gpg-agent = {
     enable = true;
