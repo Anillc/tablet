@@ -15,8 +15,9 @@
   };
   services.restic.backups.persist = {
     initialize = true;
-    repository = "rest:http://lux.a:8081/tablet";
-    passwordFile = config.sops.secrets.tablet-backup-restic-passwd.path;
+    repositoryFile = config.sops.secrets.restic-persist-repo.path;
+    passwordFile = config.sops.secrets.restic-persist-pwd.path;
+    environmentFile = config.sops.secrets.restic-persist-env.path;
     paths = [ "/persist" ];
     extraBackupArgs = [
       "--one-file-system"

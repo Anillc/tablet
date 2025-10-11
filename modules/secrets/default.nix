@@ -3,6 +3,8 @@
     age.keyFile = "/var/lib/sops.key";
     defaultSopsFile = ./secrets.yaml;
     secrets.oath = {};
-    secrets.tablet-backup-restic-passwd = {};
+    secrets.restic-persist-repo = {};
+    secrets.restic-persist-pwd = {};
+    secrets.restic-persist-env = {};
   };
 }
