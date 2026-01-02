@@ -28,7 +28,17 @@ with lib;
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
-    settings.scala.disabled = true;
+    settings = {
+      format = "$all$time$line_break$battery$status$character";
+      directory.truncation_length = 8;
+      nix_shell.format = "via [$symbol]($style)";
+      time = {
+        disabled = false;
+        format = "at [$time]($style)";
+      };
+
+      scala.disabled = true;
+    };
   };
   programs.ghostty = {
     enable = true;
