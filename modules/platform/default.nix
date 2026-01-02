@@ -65,11 +65,11 @@
     loader.efi.canTouchEfiVariables = true;
   };
   # FIXME: systemd-inhibit --list  gnome-settings-daemon
-  services.logind = {
+  services.logind.settings.Login = {
     # powerKey = "suspend-then-hibernate";
     # suspendKey = "suspend-then-hibernate";
-    powerKey = "hibernate";
-    suspendKey = "hibernate";
+    HandlePowerKey = "hibernate";
+    HandleSuspendKey = "hibernate";
   };
   systemd.sleep.extraConfig = ''
     HibernateDelaySec=1h

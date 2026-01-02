@@ -73,9 +73,8 @@ with lib;
     nix-index
     nodejs
     ninja
-    nur.repos.linyinfeng.wemeet
     openjdk
-    tdesktop
+    telegram-desktop
     qq
     ripgrep
     scala
@@ -86,6 +85,6 @@ with lib;
     wl-clipboard
     xournalpp
     yarn
-    zotero_7
+    zotero
   ];
 }

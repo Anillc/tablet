@@ -27,7 +27,6 @@
     github.copilot
     tomoki1207.pdf
     vscodevim.vim
-    prisma.prisma
     bbenoist.nix
     mkhl.direnv
     vue.volar
