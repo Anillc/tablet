@@ -63,6 +63,9 @@
     resumeDevice = "/dev/mapper/root";
     kernelParams = [ "resume_offset=533760" "video=efifb" "fbcon=rotate:1" ];
     loader.efi.canTouchEfiVariables = true;
+    extraModprobeConfig = ''
+      options hid_apple fnmode=2
+    '';
   };
   # FIXME: systemd-inhibit --list  gnome-settings-daemon
   services.logind.settings.Login = {
