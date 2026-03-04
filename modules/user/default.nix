@@ -75,4 +75,12 @@ with lib;
       ];
     };
   };
+
+  # activate home manager
+  system.userActivationScripts.home-manager.text = ''
+    HM_ACTIVATE=$HOME/.local/state/nix/profiles/home-manager/activate
+    if [ -e "$HM_ACTIVATE" ]; then
+      PATH=$PATH:${pkgs.nix}/bin $HM_ACTIVATE
+    fi
+  '';
 }
