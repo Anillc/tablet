@@ -7,7 +7,7 @@ with lib;
   security.sudo.wheelNeedsPassword = false;
   users.users.anillc = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "adbusers" "dialout" "networkmanager" "wireshark" ];
+    extraGroups = [ "wheel" "adbusers" "dialout" "networkmanager" "wireshark" "docker" ];
     shell = pkgs.fish;
     hashedPassword = "$6$Gb5yWjYmsBX72y3Q$SAg7ym2VszDOiZw2Dmo.3R7fBAg3LHCqHcTkggNaNHOGnaaQLptoETbIVM2c4Ox2sxOZm6IC4anA9L5A3MDKk.";
   };
@@ -21,12 +21,6 @@ with lib;
       usersFile = config.sops.secrets.oath.path;
     };
   };
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    sharedModules = [ ./home.nix ];
-    users.anillc = {};
-  };
   time.timeZone = "Asia/Shanghai";
   programs.vim = {
     enable = true;
@@ -36,10 +30,8 @@ with lib;
     enable = true;
     package = pkgs.mariadb;
   };
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-  };
+  virtualisation.podman.enable = true;
+  virtualisation.docker.enable = true;
   environment.persistence."/persist" = {
     users.anillc = {
       directories = [

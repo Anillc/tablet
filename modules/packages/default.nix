@@ -21,7 +21,9 @@ with lib;
   programs.adb.enable = true;
   programs.nix-ld.enable = true;
   environment.systemPackages = with pkgs; [
-    (callPackage ./vscode.nix {})
+    (callPackage ./vscode.nix {
+      volar-pkgs = import inputs.nixpkgs-volar { system = pkgs.system; };
+    })
     (agda.withPackages (p: [ p.standard-library p.cubical ]))
     (rust-bin.nightly.latest.default.override {
       extensions = ["rust-src"];

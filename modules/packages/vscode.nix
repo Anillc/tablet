@@ -6,6 +6,7 @@
   vscode-utils,
   vscode-extensions,
   vscode-with-extensions,
+  volar-pkgs,
   ...
 }: vscode-with-extensions.override {
   vscodeExtensions = with vscode-extensions; [
@@ -14,6 +15,7 @@
     wakatime.vscode-wakatime
     myriad-dreamin.tinymist
     rust-lang.rust-analyzer
+    saoudrizwan.claude-dev
     mesonbuild.mesonbuild
     vadimcn.vscode-lldb
     github.copilot-chat
@@ -29,7 +31,7 @@
     vscodevim.vim
     bbenoist.nix
     mkhl.direnv
-    vue.volar
+    volar-pkgs.vscode-extensions.vue.volar
     golang.go
   ];
 }
