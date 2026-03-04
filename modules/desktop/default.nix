@@ -3,27 +3,7 @@
 with builtins;
 with lib;
 
-let
-  # TODO: refactor this
-  rime-prelude = pkgs.fetchFromGitHub {
-    owner = "rime";
-    repo = "rime-prelude";
-    rev = "3c602fdb0dcca7825103e281efc50ef7580f99ec";
-    hash = "sha256-R9sxeCe1e2A3pn//iGwRr3eTTpgxprjEEjlo15/O19c=";
-  };
-  rime-flypy = pkgs.callPackage ({ stdenv, fetchFromGitHub, librime, ... }: stdenv.mkDerivation {
-    name = "rime-flypy";
-    src = fetchFromGitHub {
-      owner = "cubercsl";
-      repo = "rime-flypy";
-      rev = "ea9455f25995a2878485c85b111c34a2a897adac";
-      hash = "sha256-Lw54pNXUzsVv9OFp7c5Bf+pCCA0DWTslSTrN/raX9CM=";
-    };
-    nativeBuildInputs = [ librime ];
-    prePatch = "cp -r ${rime-prelude}/* .";
-    makeFlags = [ "PREFIX=$(out)" ];
-  }) {};
-in {
+{
   services = {
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
@@ -36,15 +16,6 @@ in {
       DisableOnStylus = true;
       DisableOnPalm = true;
     };
-  };
-  i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      (fcitx5-rime.override {
-        rimeDataPkgs = [ rime-flypy ];
-      })
-    ];
   };
   fonts.packages = with pkgs; [
     jetbrains-mono

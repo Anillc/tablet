@@ -45,7 +45,6 @@
   hardware.sensor.iio.enable = true;
   system.stateVersion = "22.05";
   boot = {
-    # kernelPackages = pkgs.linuxPackages_latest;
     binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ];
     kernelModules = [ "kvm-intel" "v4l2loopback" ];
     extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];

@@ -38,18 +38,6 @@ with lib;
         "wasm32-unknown-unknown"
       ];
     })
-    ((vivaldi.override {
-      inherit vivaldi-ffmpeg-codecs widevine-cdm;
-      commandLineArgs = "--ozone-platform=wayland --gtk-version=4 --disable-features=WaylandFractionalScaleV1";
-      proprietaryCodecs = true;
-      enableWidevine = true;
-    }).overrideAttrs (old: {
-      buildPhase = old.buildPhase + ''
-        for f in chrome_crashpad_handler vivaldi-bin vivaldi-sandbox; do
-          patchelf --add-rpath "${pkgs.gtk4}/lib" opt/vivaldi/$f
-        done
-      '';
-    }))
     attic-client
     cargo-expand
     clang-tools

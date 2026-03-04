@@ -43,7 +43,6 @@ with lib;
         ".config/attic"
         ".config/Code"
         ".config/dconf"
-        ".config/fcitx5"
         ".config/LarkShell"
         ".config/npm-token"
         ".config/QQ"
