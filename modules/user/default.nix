@@ -1,19 +1,13 @@
-{ config, pkgs, lib, ... }:
-
-with builtins;
-with lib;
-
-{
+{ config, pkgs, lib, ... }: {
   security.sudo.wheelNeedsPassword = false;
   users.users.anillc = {
     isNormalUser = true;
     extraGroups = [ "wheel" "adbusers" "dialout" "networkmanager" "wireshark" "docker" ];
-    shell = pkgs.fish;
     hashedPassword = "$6$Gb5yWjYmsBX72y3Q$SAg7ym2VszDOiZw2Dmo.3R7fBAg3LHCqHcTkggNaNHOGnaaQLptoETbIVM2c4Ox2sxOZm6IC4anA9L5A3MDKk.";
   };
   security.pam = {
     services.login = {
-      rules.auth.oath.control = mkForce "sufficient";
+      rules.auth.oath.control = lib.mkForce "sufficient";
       oathAuth = true;
     };
     oath = {
@@ -22,28 +16,17 @@ with lib;
     };
   };
   time.timeZone = "Asia/Shanghai";
-  programs.vim = {
-    enable = true;
-    defaultEditor = true;
-  };
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-  };
   virtualisation.podman.enable = true;
   virtualisation.docker.enable = true;
   environment.persistence."/persist" = {
     users.anillc = {
       directories = [
         ".cache/coursier"
-        ".cache/huggingface"
-        ".cache/nix-index"
         ".cache/nix"
         ".cache/pip"
         ".config/attic"
         ".config/Code"
         ".config/dconf"
-        ".config/LarkShell"
         ".config/npm-token"
         ".config/QQ"
         ".config/sops"
@@ -68,10 +51,6 @@ with lib;
         "Templates"
         "Videos"
         "Zotero"
-      ];
-      files = [
-        ".gitconfig"
-        ".wakatime.cfg"
       ];
     };
   };
