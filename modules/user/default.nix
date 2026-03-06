@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ config, lib, ... }: {
   security.sudo.wheelNeedsPassword = false;
   users.users.anillc = {
     isNormalUser = true;
@@ -56,10 +56,15 @@
   };
 
   # activate home manager
-  system.userActivationScripts.home-manager.text = ''
-    HM_ACTIVATE=$HOME/.local/state/nix/profiles/home-manager/activate
-    if [ -e "$HM_ACTIVATE" ]; then
-      PATH=$PATH:${pkgs.nix}/bin $HM_ACTIVATE
-    fi
-  '';
+  systemd.services.home-manager = {
+    wantedBy = [ "multi-user.target" ];
+    wants = [ "nix-daemon.socket" ];
+    after = [ "nix-daemon.socket" ];
+    before = [ "systemd-user-sessions.service" ];
+    unitConfig.RequiresMountsFor = "/home/anillc";
+    serviceConfig.User = "anillc";
+    script = ''
+      exec $HOME/.local/state/nix/profiles/home-manager/activate
+    '';
+  };
 }
