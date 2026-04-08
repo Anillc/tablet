@@ -1,8 +1,8 @@
-{ config, lib, ... }: {
+{ config, pkgs, lib, ... }: {
   security.sudo.wheelNeedsPassword = false;
   users.users.anillc = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "adbusers" "dialout" "networkmanager" "wireshark" "docker" ];
+    extraGroups = [ "wheel" "adbusers" "dialout" "networkmanager" "wireshark" "docker" "libvirtd" ];
     hashedPassword = "$6$Gb5yWjYmsBX72y3Q$SAg7ym2VszDOiZw2Dmo.3R7fBAg3LHCqHcTkggNaNHOGnaaQLptoETbIVM2c4Ox2sxOZm6IC4anA9L5A3MDKk.";
   };
   security.pam = {
@@ -18,6 +18,18 @@
   time.timeZone = "Asia/Shanghai";
   virtualisation.podman.enable = true;
   virtualisation.docker.enable = true;
+
+  programs.virt-manager.enable = true;
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+      vhostUserPackages = [ pkgs.virtiofsd ];
+    };
+  };
+
   environment.persistence."/persist" = {
     users.anillc = {
       directories = [
