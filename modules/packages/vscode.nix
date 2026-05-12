@@ -11,6 +11,8 @@
 }: vscode-with-extensions.override {
   vscodeExtensions = with vscode-extensions; [
     llvm-vs-code-extensions.vscode-clangd
+    ms-vscode-remote.remote-containers
+    ms-vscode-remote.remote-ssh
     justusadam.language-haskell
     wakatime.vscode-wakatime
     myriad-dreamin.tinymist
