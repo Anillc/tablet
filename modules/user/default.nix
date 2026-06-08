@@ -36,6 +36,7 @@
         ".cache/coursier"
         ".cache/nix"
         ".cache/pip"
+        ".cache/uv"
         ".config/attic"
         ".config/Code"
         ".config/dconf"
