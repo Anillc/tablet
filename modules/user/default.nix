@@ -46,6 +46,7 @@
         ".config/vivaldi"
         ".config/xournalpp"
         ".cargo"
+        ".codex"
         ".gnupg"
         ".kube"
         ".local"
