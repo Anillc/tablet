@@ -26,10 +26,12 @@
     ".codex"
     ".gnupg"
     ".kube"
+    ".multica"
     ".ssh"
     ".thunderbird"
     ".zotero"
     "go"
+    "multica_workspaces"
     "Zotero"
   ];
 }
