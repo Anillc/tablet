@@ -1,31 +1,20 @@
-{ config, pkgs, lib, ... }:
-
-with builtins;
-with lib;
+{ pkgs, lib, ... }:
 
 {
   services = {
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
-  };
-  programs.xwayland.enable = true;
-  services.libinput.enable = true;
-  services.iptsd = {
-    enable = true;
-    config.Touchscreen = {
-      DisableOnStylus = true;
-      DisableOnPalm = true;
+    libinput.enable = true;
+    iptsd = {
+      enable = true;
+      config.Touchscreen = {
+        DisableOnStylus = true;
+        DisableOnPalm = true;
+      };
     };
   };
-  fonts.packages = with pkgs; [
-    jetbrains-mono
-    source-han-sans
-    font-awesome
-  ] ++ filter isDerivation (attrValues pkgs.nerd-fonts);
-  systemd.tmpfiles.rules = [
-    "L /run/gdm/.config/monitors.xml     -      -     - - ${./monitors.xml}"
-    "L /home/anillc/.config/monitors.xml - anillc users - ${./monitors.xml}"
-  ];
+  programs.xwayland.enable = true;
+
   environment.systemPackages = lib.flip map (with pkgs.gnomeExtensions; [
     gjs-osk
     blur-my-shell appindicator disable-gestures-2021
@@ -41,6 +30,19 @@ with lib;
       echo $METADATA | ${pkgs.jq}/bin/jq '."shell-version" += ["${version}"]' > $FILE
     '';
   }));
+
+  fonts.packages = with pkgs; [
+    jetbrains-mono
+    source-han-sans
+    font-awesome
+  ] ++ lib.filter lib.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+
+  systemd.tmpfiles.rules = [
+    "L /run/gdm/.config/monitors.xml     -      -     - - ${./monitors.xml}"
+    "L /home/anillc/.config/monitors.xml - anillc users - ${./monitors.xml}"
+  ];
   # gsconnect
   networking.firewall.allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+
+  environment.persistence."/persist".users.anillc.directories = [ ".config/dconf" ];
 }

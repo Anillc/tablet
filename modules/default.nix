@@ -1,15 +1,12 @@
-{ config, pkgs, lib, ... }:
-
-with builtins;
-with lib;
-
 {
   imports = [
-    ./platform
+    ./system
+    ./users.nix
     ./desktop
-    ./network
-    ./packages
-    ./user
-    ./secrets
+    ./network.nix
+    ./packages.nix
+    ./vscode.nix
+    ./virtualisation.nix
+    ./restic
   ];
 }

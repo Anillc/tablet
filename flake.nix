@@ -28,6 +28,8 @@
       specialArgs = { inherit inputs; };
       modules = [
         sops-nix.nixosModules.sops
+        { sops.age.keyFile = "/var/lib/sops.key"; }
+
         impermanence.nixosModules.impermanence
         lanzaboote.nixosModules.lanzaboote
         ./modules
