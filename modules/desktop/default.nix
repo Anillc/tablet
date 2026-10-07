@@ -38,8 +38,9 @@
   ] ++ lib.filter lib.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   systemd.tmpfiles.rules = [
-    "L /run/gdm/.config/monitors.xml     -      -     - - ${./monitors.xml}"
-    "L /home/anillc/.config/monitors.xml - anillc users - ${./monitors.xml}"
+    "d /var/lib/gdm/seat0/config              0700 gdm-greeter nogroup -"
+    "L /var/lib/gdm/seat0/config/monitors.xml  -    -           -       - ${./monitors.xml}"
+    "L /home/anillc/.config/monitors.xml       -    anillc      users   - ${./monitors.xml}"
   ];
   # gsconnect
   networking.firewall.allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
