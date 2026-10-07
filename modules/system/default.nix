@@ -21,6 +21,26 @@
   ];
   systemd.sleep.settings.Sleep.HibernateDelaySec = "1h";
 
+  systemd.services.duet-folio-rebind = {
+    description = "Re-probe the Duet 5 folio keyboard/touchpad after resume";
+    after = [ "suspend.target" ];
+    wantedBy = [ "suspend.target" ];
+    serviceConfig.Type = "oneshot";
+    script = ''
+      set -euo pipefail
+      dev=/sys/bus/usb/devices/1-3
+      hid=/sys/bus/usb/drivers/usbhid
+
+      for _ in {1..20}; do
+        [[ -e "$dev:1.1" ]] && break
+        sleep 1
+      done
+
+      echo 1-3:1.0 > "$hid/bind" 2>/dev/null || true
+      echo 1-3:1.1 > "$hid/bind" 2>/dev/null || true
+    '';
+  };
+
   # boot
   boot = {
     initrd.systemd.enable = true;
