@@ -11,16 +11,15 @@
   hardware.sensor.iio.enable = true;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
-  # FIXME: systemd-inhibit --list  gnome-settings-daemon
+  # This doesn't work for gnome. Keep this for non-gnome sessions.
   services.logind.settings.Login = {
-    # powerKey = "suspend-then-hibernate";
-    # suspendKey = "suspend-then-hibernate";
-    HandlePowerKey = "hibernate";
-    HandleSuspendKey = "hibernate";
+    HandlePowerKey = "suspend-then-hibernate";
+    HandleSuspendKey = "suspend-then-hibernate";
   };
-  systemd.sleep.settings.Sleep = {
-    HibernateDelaySec = "1h";
-  };
+  systemd.services."systemd-suspend".serviceConfig.ExecStart = [
+    "" "${config.systemd.package}/lib/systemd/systemd-sleep suspend-then-hibernate"
+  ];
+  systemd.sleep.settings.Sleep.HibernateDelaySec = "1h";
 
   # boot
   boot = {
