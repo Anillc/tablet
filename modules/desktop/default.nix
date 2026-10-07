@@ -17,7 +17,7 @@
 
   environment.systemPackages = lib.flip map (with pkgs.gnomeExtensions; [
     gjs-osk
-    blur-my-shell appindicator disable-gestures-2021
+    blur-my-shell appindicator
     kimpanel launch-new-instance screen-rotate gsconnect
   ]) (x: x.overrideAttrs (old: let
     version = pkgs.gnome-shell.version

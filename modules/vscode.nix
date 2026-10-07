@@ -1,13 +1,11 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
-let
-  volar = import inputs.nixpkgs-volar { system = pkgs.system; };
-in {
+{
   environment.systemPackages = [
     (pkgs.vscode-with-extensions.override {
       vscodeExtensions = with pkgs.vscode-extensions; [
         llvm-vs-code-extensions.vscode-clangd
-        volar.vscode-extensions.vue.volar
+        vue.volar
         justusadam.language-haskell
         myriad-dreamin.tinymist
         rust-lang.rust-analyzer

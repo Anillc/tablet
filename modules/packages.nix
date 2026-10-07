@@ -6,14 +6,13 @@
   programs.nix-ld.enable = true;
   programs.command-not-found.enable = false;
 
-  programs.adb.enable = true;
-
   environment.systemPackages = with pkgs; [
+    android-tools
     (agda.withPackages (p: [ p.standard-library p.cubical ]))
     telegram-desktop
     thunderbird
     xournalpp
-    zotero
+    # zotero  # temporarily disabled: zotero-10.0.4 fails to build (Firefox ESR 153 vs 140 mismatch in nixpkgs)
   ];
 
   environment.persistence."/persist".users.anillc.directories = [
