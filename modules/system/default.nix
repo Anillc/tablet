@@ -46,7 +46,13 @@
     initrd.systemd.enable = true;
     initrd.luks.devices.root.device = "/dev/disk/by-uuid/a149a2ae-b7e1-4201-b978-e380c0acf6f4";
     resumeDevice = "/dev/mapper/root";
-    kernelParams = [ "resume_offset=533760" "video=efifb" "fbcon=rotate:1" ];
+    kernelParams = [
+      "resume_offset=533760"
+      "video=efifb"
+      "fbcon=rotate:1"
+      # keyboard is not high speed device
+      "usbcore.quirks=17ef:6139:i"
+    ];
 
     binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ];
     extraModprobeConfig = ''
