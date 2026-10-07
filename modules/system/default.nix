@@ -95,12 +95,12 @@
   security.sudo.wheelNeedsPassword = false;
   security.pam = {
     services.login = {
-      rules.auth.oath.control = lib.mkForce "sufficient";
       oathAuth = true;
+      rules.auth.oath = {
+        control = lib.mkForce "sufficient";
+        order = 13200;
+      };
     };
-    oath = {
-      enable = true;
-      usersFile = config.sops.secrets.oath.path;
-    };
+    oath.usersFile = config.sops.secrets.oath.path;
   };
 }
