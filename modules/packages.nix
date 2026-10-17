@@ -23,6 +23,7 @@
     ".config/xournalpp"
     ".cargo"
     ".codex"
+    ".dsh.nix"
     ".gnupg"
     ".kube"
     ".multica"
