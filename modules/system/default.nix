@@ -21,23 +21,6 @@
   ];
   systemd.sleep.settings.Sleep.HibernateDelaySec = "1h";
 
-  systemd.services.duet-folio-rebind = {
-    description = "Re-probe the Duet 5 folio keyboard/touchpad after resume";
-    after = [ "suspend.target" ];
-    wantedBy = [ "suspend.target" ];
-    serviceConfig.Type = "oneshot";
-    script = ''
-      set -euo pipefail
-
-      # the folio re-enumerates late after hibernate; keep re-probing (EBUSY if bound)
-      for _ in {1..20}; do
-        echo 1-3:1.0 > /sys/bus/usb/drivers/usbhid/bind 2>/dev/null || true
-        echo 1-3:1.1 > /sys/bus/usb/drivers/usbhid/bind 2>/dev/null || true
-        sleep 1
-      done
-    '';
-  };
-
   # boot
   boot = {
     initrd.systemd.enable = true;
@@ -48,7 +31,7 @@
       "video=efifb"
       "fbcon=rotate:1"
       # keyboard is not high speed device
-      "usbcore.quirks=17ef:6139:i"
+      "usbcore.quirks=17ef:6139:bi"
     ];
 
     binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ];

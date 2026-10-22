@@ -1,5 +1,28 @@
 { pkgs, lib, ... }:
 
+let
+  folio-reset-extension = pkgs.stdenvNoCC.mkDerivation {
+    name = "gnome-shell-extension-folio-reset";
+    dontUnpack = true;
+    installPhase = ''
+      runHook preInstall
+      dir=$out/share/gnome-shell/extensions/folio-reset@anillc
+      mkdir -p "$dir"
+      cp ${./folio-reset.js} "$dir/extension.js"
+      cat >"$dir/metadata.json" <<EOF
+      {
+        "uuid": "folio-reset@anillc",
+        "name": "Folio USB Reset",
+        "description": "Reset the xHCI controller when the Duet 5 folio keyboard is not detected",
+        "shell-version": ["${lib.versions.major pkgs.gnome-shell.version}"],
+        "version": 1
+      }
+      EOF
+      runHook postInstall
+    '';
+  };
+in
+
 {
   services = {
     displayManager.gdm.enable = true;
@@ -29,7 +52,7 @@
       METADATA=$(cat $FILE)
       echo $METADATA | ${pkgs.jq}/bin/jq '."shell-version" += ["${version}"]' > $FILE
     '';
-  }));
+  })) ++ [ folio-reset-extension ];
 
   fonts.packages = with pkgs; [
     jetbrains-mono
