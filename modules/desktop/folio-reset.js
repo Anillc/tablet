@@ -51,21 +51,11 @@ export default class FolioResetExtension extends Extension {
         });
         this._button.add_action(click);
         Main.panel.addToStatusArea('folio-reset', this._button);
-
-        this._seat = global.stage.context.get_backend().get_default_seat();
-        this._seat.connectObject('notify::touch-mode', () => this._sync(), this);
-        this._sync();
     }
 
     disable() {
-        this._seat.disconnectObject(this);
-        this._seat = null;
         this._button?.destroy();
         this._button = null;
-    }
-
-    _sync() {
-        this._button.visible = !this._seat.touch_mode;
     }
 
     async _reset() {

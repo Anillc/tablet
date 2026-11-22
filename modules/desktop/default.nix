@@ -15,6 +15,7 @@ let
         "name": "Folio USB Reset",
         "description": "Reset the xHCI controller when the Duet 5 folio keyboard is not detected",
         "shell-version": ["${lib.versions.major pkgs.gnome-shell.version}"],
+        "session-modes": ["user", "unlock-dialog"],
         "version": 1
       }
       EOF
