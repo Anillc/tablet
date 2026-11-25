@@ -4,6 +4,7 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings.trusted-users = [ "@wheel" ];
   programs.nix-ld.enable = true;
+  programs.fuse.enable = true;
   programs.command-not-found.enable = false;
 
   environment.systemPackages = with pkgs; [

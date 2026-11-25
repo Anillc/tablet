@@ -11,6 +11,8 @@
   };
 
   security.pam.services.hyprlock = { };
+  security.pam.services.hypr-rdp = { };
+  networking.firewall.allowedTCPPorts = [ 3389 ];
   programs.hyprland = {
     enable = true;
     withUWSM = true;

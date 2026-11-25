@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   system.stateVersion = "22.05";
@@ -8,6 +8,7 @@
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.enableRedistributableFirmware = true;
   hardware.graphics.enable32Bit = true;
+  hardware.graphics.extraPackages = [ pkgs.intel-media-driver ];
   hardware.sensor.iio.enable = true;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
