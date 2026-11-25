@@ -11,15 +11,17 @@
   hardware.sensor.iio.enable = true;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
-  # This doesn't work for gnome. Keep this for non-gnome sessions.
-  services.logind.settings.Login = {
-    HandlePowerKey = "suspend-then-hibernate";
-    HandleSuspendKey = "suspend-then-hibernate";
-  };
-  systemd.services."systemd-suspend".serviceConfig.ExecStart = [
-    "" "${config.systemd.package}/lib/systemd/systemd-sleep suspend-then-hibernate"
-  ];
   systemd.sleep.settings.Sleep.HibernateDelaySec = "1h";
+  services.udev.extraRules = ''
+    SUBSYSTEM=="power_supply", KERNEL=="ADP1", ATTR{power/wakeup}="enabled"
+  '';
+  services.logind.settings.Login = {
+    HandlePowerKey = "lock";
+    HandleLidSwitch = "lock";
+    HandleLidSwitchExternalPower = "lock";
+    HandleLidSwitchDocked = "lock";
+    HandleSuspendKey = "ignore";
+  };
 
   # boot
   boot = {

@@ -2,7 +2,7 @@
   imports = [
     ./system
     ./users.nix
-    ./desktop
+    ./desktop.nix
     ./network.nix
     ./sshd.nix
     ./packages.nix
