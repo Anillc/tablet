@@ -13,6 +13,9 @@
   security.pam.services.hyprlock = { };
   security.pam.services.hypr-rdp = { };
   networking.firewall.allowedTCPPorts = [ 3389 ];
+  environment.persistence."/persist".users.anillc.directories = [
+    ".config/hypr-rdp"
+  ];
   programs.hyprland = {
     enable = true;
     withUWSM = true;
