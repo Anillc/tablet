@@ -9,6 +9,7 @@
   hardware.enableRedistributableFirmware = true;
   hardware.graphics.enable32Bit = true;
   hardware.graphics.extraPackages = [ pkgs.intel-media-driver ];
+  hardware.bluetooth.enable = true;
   hardware.sensor.iio.enable = true;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
