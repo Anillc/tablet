@@ -12,6 +12,7 @@
   hardware.bluetooth.enable = true;
   hardware.sensor.iio.enable = true;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  services.power-profiles-daemon.enable = true;
 
   systemd.sleep.settings.Sleep.HibernateDelaySec = "1h";
   services.udev.extraRules = ''
