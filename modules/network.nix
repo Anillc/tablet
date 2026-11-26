@@ -8,6 +8,7 @@
   networking.nftables.enable = true;
   networking.nftables.flushRuleset = false;
   networking.firewall.checkReversePath = false;
+  networking.getaddrinfo.precedence."::ffff:0:0/96" = 100;
 
   boot.kernelModules = [ "br_netfilter" ];
   boot.kernel.sysctl = {

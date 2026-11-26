@@ -3,6 +3,8 @@ let
   home-port = 7897;
   mark = 1;
   table = 1000;
+  kn-table = 1001;
+  kn-priority = 2000;
   direct-mark = 2;
 in {
   networking.nftables.tables.singbox_tproxy = {
@@ -30,12 +32,14 @@ in {
         type route hook output priority 100; policy accept;
         ct mark ${toString direct-mark} return
         fib daddr type local return
-        ip daddr 10.11.0.0/16 meta mark set ${toString mark} return
-        ip6 daddr fd11::/16 meta mark set ${toString mark} return
+        ip daddr 10.11.0.0/16 meta l4proto { tcp, udp } meta mark set ${toString mark} return
+        ip6 daddr fd11::/16 meta l4proto { tcp, udp } meta mark set ${toString mark} return
         ip daddr @bogons_v4 udp dport != 53 return
         ip daddr @bogons_v4 tcp dport != 53 return
         ip6 daddr @bogons_v6 udp dport != 53 return
         ip6 daddr @bogons_v6 tcp dport != 53 return
+        # only fd11::/16 is proxied; leave the rest of IPv6 to the system
+        meta nfproto ipv6 return
         meta mark != 0 return
         meta l4proto { tcp, udp } meta mark set ${toString mark}
       }
@@ -68,8 +72,18 @@ in {
     ip -6 route replace local default dev lo table ${toString table} &&
       { ip -6 rule del fwmark ${toString mark} lookup ${toString table} priority ${toString table} 2>/dev/null || true
         ip -6 rule add fwmark ${toString mark} lookup ${toString table} priority ${toString table}; } || true
-    ip route replace 10.11.0.0/16 dev lo metric 1024 2>/dev/null || true
-    ip -6 route replace fd11::/16 dev lo metric 1024 2>/dev/null || true
+    ip route del 10.11.0.0/16 dev lo metric 1024 2>/dev/null || true
+    ip -6 route del fd11::/16 dev lo metric 1024 2>/dev/null || true
+    ip route replace 10.11.0.0/16 dev lo table ${toString kn-table} &&
+      { ip rule del to 10.11.0.0/16 ipproto tcp lookup ${toString kn-table} priority ${toString kn-priority} 2>/dev/null || true
+        ip rule add to 10.11.0.0/16 ipproto tcp lookup ${toString kn-table} priority ${toString kn-priority}
+        ip rule del to 10.11.0.0/16 ipproto udp lookup ${toString kn-table} priority ${toString kn-priority} 2>/dev/null || true
+        ip rule add to 10.11.0.0/16 ipproto udp lookup ${toString kn-table} priority ${toString kn-priority}; } || true
+    ip -6 route replace fd11::/16 dev lo table ${toString kn-table} &&
+      { ip -6 rule del to fd11::/16 ipproto tcp lookup ${toString kn-table} priority ${toString kn-priority} 2>/dev/null || true
+        ip -6 rule add to fd11::/16 ipproto tcp lookup ${toString kn-table} priority ${toString kn-priority}
+        ip -6 rule del to fd11::/16 ipproto udp lookup ${toString kn-table} priority ${toString kn-priority} 2>/dev/null || true
+        ip -6 rule add to fd11::/16 ipproto udp lookup ${toString kn-table} priority ${toString kn-priority}; } || true
   '';
 
   systemd.services.sing-box.serviceConfig = {
